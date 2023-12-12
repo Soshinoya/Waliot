@@ -1,0 +1,1 @@
+const copyToClipboard = async value => await navigator.clipboard.writeText(value)

@@ -1,0 +1,23 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import '../../node_modules/swiper/swiper-bundle.min';
+
+.row {
+    gap: 16px;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0 56px;
+}
+
+.row>* {
+    padding: 0;
+}
+
+// @media (min-width: 768px) {
+//     .swiper-slide {
+//         width: 590px;
+//     }
+// }
+
+// .pagination-bullet.swiper-pagination-bullet-active {
+//     opacity: 1;
+// }
