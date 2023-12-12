@@ -7,6 +7,30 @@ html(lang='ru')
         title Waliot
         link(rel="stylesheet" href="css/style.min.css")
     body
+        include ./components/molecules/VideoButton.jade
+        include ./components/atoms/MainButton.jade
+        include ./components/atoms/LineButton.jade
+        include ./components/atoms/CalculatorButton.jade
+        include ./components/atoms/Link.jade
+        include ./components/atoms/LinkTwo.jade
+        include ./components/organisms/Header.jade
+
+        // Модальные окна
+        include ./components/molecules/modals/ModalProduct.jade
+        include ./components/molecules/modals/ModalSolutions.jade
+        include ./components/molecules/modals/ModalTechnologies.jade
+        include ./components/molecules/modals/ModalCompany.jade
+        include ./components/molecules/modals/ModalConnect.jade
+
+        .modals
+            .modal-overlay
+                +modalProduct()
+                +modalSolutions()
+                +modalTechnologies()
+                +modalCompany()
+                +modalConnect()
+
+        +header()
 
     //- .container
     //-     .wrapper(style="background-color: #ccc; border-radius: 20px; padding: 50px 0;")
@@ -16,5 +40,5 @@ html(lang='ru')
 
 
     //- svg
-    //-     use(xlink:href="./images/sprite.svg")
+        //- use(xlink:href="./images/sprite.svg")
     script(src="js/main.min.js" defer)

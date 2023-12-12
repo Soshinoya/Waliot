@@ -100,36 +100,3 @@
         }
     }
 };
-
-@mixin button-size($font-size, $padding) {
-    font-size: $font-size;
-    padding: $padding;
-};
-
-@mixin buttonHover($bg-color) {
-    position: relative;
-    overflow: hidden;
-
-    p {
-        z-index: 1;
-        position: relative;
-    }
-
-    span {
-        position: absolute;
-        display: block;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background-color: lighten($bg-color, 10%);
-        transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
-        transform: translate(-50%, -50%);
-    }
-
-    @include hover {
-        span {
-            width: 225%;
-            height: calc(100% * 10);
-        }
-    }
-}

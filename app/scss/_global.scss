@@ -24,7 +24,10 @@ body {
     padding: 0 20px;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     @extend %inter-600;
 }
 
@@ -49,22 +52,386 @@ h4 {
     font-size: 14px;
 }
 
-.button {
-    display: flex;
-    padding: 17px 20px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    border: 2px solid $white-color;
-    background-color: $black-color;
-    color: $white-color;
-    font-size: 14px;
-    line-height: 120%;
-    letter-spacing: 0.14px;
-    text-transform: uppercase;
+.video-button {
+    max-width: 260px;
+    gap: 16px;
 
-    &:hover {
-        background-color: $white-color;
+    &__play {
+        display: flex;
+        width: 60px;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 500px 0px 500px 500px;
+        background-color: $main-color;
+        box-shadow: none;
+        transition: box-shadow .2s $transitionTimingFunc;
+
+        svg {
+            width: 12px;
+            height: 14px;
+        }
+    }
+
+    &__link {
+        @include font(12px, 150%, $white-color);
+    }
+
+    &__text {
+        max-width: 184px;
+
+        @include font(14px, 150%, $white-color) {
+            @extend %inter-600;
+        }
+    }
+
+    @include hover() {
+        .video-button__play {
+            box-shadow: 0px 8px 30px -8px rgba($main-color, 0.7)
+        }
+    }
+}
+
+.main-button {
+    width: fit-content;
+    padding: 20px 36px;
+    background-color: $main-color;
+    border-radius: 50px;
+    color: $white-color;
+    box-shadow: none;
+    transition: box-shadow .2s $transitionTimingFunc;
+
+    @include hover() {
+        box-shadow: 0px 8px 30px -8px rgba($main-color, 0.7)
+    }
+}
+
+.line-button,
+.line-icon-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    padding: 20px 36px;
+    background-color: transparent;
+    border: 1px solid $sep-color;
+    border-radius: 50px;
+    transition: border .2s $transitionTimingFunc, color .2s $transitionTimingFunc;
+
+    &__icon svg {
+        width: 24px;
+        height: 24px;
+
+        use {
+            fill: $black-color;
+
+            transition: fill .2s $transitionTimingFunc;
+        }
+    }
+
+    @include hover() {
+        color: $main-color;
+        border: 1px solid $main-color;
+
+        use {
+            fill: $main-color;
+        }
+    }
+}
+
+.line-icon-button {
+    padding: 10px 20px;
+}
+
+.calculator-button {
+    width: fit-content;
+    padding: 20px 36px;
+    background: linear-gradient(107deg, #FA9600 22.08%, #F97700 84.42%);
+    background-size: 200% 100%;
+    background-position: 0 0;
+    border-radius: 50px;
+    transition: background-position .3s $transitionTimingFunc;
+    color: $white-color;
+
+    @include hover() {
+        background-position: 100% 0;
+    }
+}
+
+.link {
+    @include font(14px, 150%, $txt2-color) {
+        text-decoration-line: underline;
+        transition: color .2s $transitionTimingFunc, text-decoration-line .2s $transitionTimingFunc;
+    }
+
+    @include hover() {
+        text-decoration-line: none;
+        color: $main-color;
+    }
+}
+
+.link-two {
+    @extend %inter-600;
+    color: $main-color;
+    text-decoration-line: underline;
+    transition: text-decoration-line .2s $transitionTimingFunc;
+
+    @include hover() {
+        text-decoration-line: none;
+    }
+}
+
+.popup-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+
+    transition: color .2s $transitionTimingFunc;
+
+    svg {
+        width: 24px;
+        height: 24px;
+
+        transition: transform .2s $transitionTimingFunc;
+
+        use {
+            fill: $black-color;
+
+            transition: fill .2s $transitionTimingFunc;
+        }
+    }
+
+    &--active {
+        color: $txt2-color;
+
+        svg {
+            transform: rotate(180deg);
+
+            use {
+                fill: $txt2-color;
+            }
+        }
+    }
+
+    @include hover() {
+        color: $txt2-color;
+
+        svg {
+            transform: rotate(180deg);
+
+            use {
+                fill: $txt2-color;
+            }
+        }
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 46px;
+    height: 46px;
+    padding: 15px;
+    background-color: transparent;
+    border: 1px solid $sep-color;
+    border-radius: 500px;
+    cursor: pointer;
+
+    transition: border .2s $transitionTimingFunc, width .3s $transitionTimingFunc;
+
+    &__icon svg {
+        width: 16px;
+        height: 16px;
+
+        use {
+            fill: $black-color;
+
+            transition: fill .2s $transitionTimingFunc;
+        }
+    }
+
+    &__input {
+        width: 0;
+        height: 0;
+        opacity: 0;
         color: $black-color;
+        border: none;
+        background-color: transparent;
+        outline: none;
+
+        transition: opacity .3s $transitionTimingFunc;
+
+        &::placeholder {
+            color: $txt2-color;
+        }
+    }
+
+    &--active {
+        width: 100%;
+
+        .search__input {
+            width: 100%;
+            height: fit-content;
+            opacity: 1;
+        }
+    }
+
+    @include hover() {
+        border: 1px solid $main-color;
+
+        svg {
+            use {
+                fill: $main-color;
+            }
+        }
+    }
+}
+
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 14, 20, 0.50);
+    height: 100vh;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s $transitionTimingFunc, visibility .3s $transitionTimingFunc;
+}
+
+.modal {
+    position: absolute;
+    transform: translateY(-1000vh);
+    background-color: $bg-color;
+    border-radius: 50px;
+    transition: transform .3s $transitionTimingFunc;
+
+    &__holder {
+        padding: 56px 0;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+    }
+}
+
+.modal-overlay--visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s $transitionTimingFunc, visibility .3s $transitionTimingFunc;
+}
+
+.modal--visible {
+    transform: translateY(168px);
+}
+
+.header-top {
+    background-color: $bg2-color;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0;
+    }
+
+    &__connect-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+
+    &__connect {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        &:last-child {
+            .link a {
+                font-size: 13px;
+            }
+        }
+    }
+
+    &__connect-text {
+        color: $txt2-color;
+        font-size: 13px;
+    }
+
+    &__schedule {
+        font-size: 14px;
+    }
+}
+
+.header {
+    background-color: $bg-color;
+
+    &__wrapper {
+        z-index: 0;
+    }
+
+    &__holder {
+        display: flex;
+        align-items: center;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0;
+    }
+
+    &__logo {
+        width: fit-content;
+        margin-right: 48px;
+
+        svg {
+            width: 64px;
+            height: 64px;
+        }
+    }
+
+    &__btns {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: fit-content;
+        gap: 16px;
+
+        transition: width .3s $transitionTimingFunc;
+
+        &--search {
+            width: 100%;
+        }
+
+        .main-button {
+            padding: 10px 24px;
+            min-width: 156px;
+        }
+    }
+}
+
+.menu {
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &--hidden {
+        display: none;
     }
 }

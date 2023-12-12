@@ -1,0 +1,5 @@
+mixin popupLink(path, text)
+    a.popup-link(data-path="#{path}")
+        b= text
+        svg
+            use(xlink:href="./images/sprite.svg#angle")

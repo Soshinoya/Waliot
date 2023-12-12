@@ -1,0 +1,51 @@
+include ../atoms/Link.jade
+include ../atoms/PopupLink.jade
+include ../atoms/Search.jade
+include ../atoms/LineIconButton.jade
+include ../atoms/MainButton.jade
+
+mixin header(link, linkText, text)
+    header.header__wrapper
+        .header-top
+            .container
+                .row
+                    .header-top__inner
+                        .header-top__connect-wrapper
+                            a.header-top__connect(href="mailto:info@firstmsk.ru")
+                                svg
+                                    use(xlink:href="./images/sprite.svg#mail")
+                                p.header-top__connect-text
+                                    b info@firstmsk.ru
+                            a.header-top__connect(href="tel:+78002509099")
+                                svg
+                                    use(xlink:href="./images/sprite.svg#phone")
+                                p.header-top__connect-text
+                                    b 8 800 250-90-99
+                            .header-top__connect
+                                +link('#', 'Заказать звонок')
+                        .header-top__schedule
+                            p Пн-Пт: с 9:00 до 20:00
+        .header
+            .container
+                .row
+                    .header__inner
+                        .header__holder
+                            a.header__logo(href='/')
+                                svg
+                                    use(xlink:href="./images/sprite.svg#logo_mini")
+                            nav.menu
+                                ul.menu__list
+                                    li.menu__list-item
+                                        +popupLink('product', 'Продукт')
+                                    li.menu__list-item
+                                        +popupLink('solutions', 'Решения')
+                                    li.menu__list-item
+                                        +popupLink('technologies', 'Технологии')
+                                    li.menu__list-item
+                                        +popupLink('company', 'Компания')
+                                    li.menu__list-item
+                                        +popupLink('connect', 'Связаться')
+                        .header__btns
+                            +search('Что ищем?')
+                            +lineIconButton('#', 'Войти', '#log-in')
+                            +mainButton('#', 'Демо-версия')
