@@ -7,7 +7,6 @@ html(lang='ru')
         title Waliot
         link(rel="stylesheet" href="css/style.min.css")
     body
-        // UI
         include ./components/molecules/VideoButton.jade
         include ./components/atoms/MainButton.jade
         include ./components/atoms/LineButton.jade
@@ -16,7 +15,6 @@ html(lang='ru')
         include ./components/atoms/LinkTwo.jade
         include ./components/organisms/Header.jade
 
-        // Модальные окна
         include ./components/molecules/modals/ModalProduct.jade
         include ./components/molecules/modals/ModalSolutions.jade
         include ./components/molecules/modals/ModalTechnologies.jade
@@ -36,6 +34,105 @@ html(lang='ru')
         +header()
         +headerModal()
 
+        section.promotion
+            .container
+                .promotion__holder
+                    .row
+                        .promotion__inner
+                            .promotion__content
+                                .promotion__content-info
+                                    h1.promotion__title
+                                        span Первая в России
+                                        |  система мониторинга транспорта с искусственным интеллектом
+                                    ul.promotion__list
+                                        li.promotion__list-item
+                                            |   Подключите мониторинг транспорта
+                                            b   под ключ за 3 дня
+                                            |   с регулярным гарантийным обслуживанием.
+                                        li.promotion__list-item
+                                            |   Контролируйте движение транспортных средств и расход топлива в режиме реального времени
+                                            b   с точностью данных 99,97%
+                                        li.promotion__list-item
+                                            |   Сократите затраты на содержание автопарка
+                                            b   до 30%
+                                            |   за 1,5 месяца
+                                        li.promotion__list-item
+                                            |   Повысьте эффективность работы транспорта
+                                            b   до 45%
+                                            |   в течение месяца
+                                        li.promotion__list-item
+                                            b   Бесплатной
+                                            |   обучайтесь работе с нашей программой после установки
+                                .promotion__btns
+                                    +mainButton('#', 'Подключить Waliot')
+                                    +lineButton('#', 'Подобрать решение')
+                            .promotion__img
+                                img(src="./images/content/promotion/system.webp" srcset="./images/content/promotion/system.webp 1x, ./images/content/promotion/system@2x.webp 2x" alt="система waliot")
+        section.feature
+            .container
+                .row
+                    .col-lg-3
+                        .feature-item(style='gap: 30px;')
+                            .feature-item__inner
+                                h3.feature-item__title >17 000
+                                p.feature-item__description Автомобилей ежедневно контролируются системой
+                            .feature-item__img
+                                img(src="./images/content/feature/feature_1.png" srcset="./images/content/feature/feature_1.webp 1x, ./images/content/feature/feature_1@2x.webp 2x" alt="")
+                    .col-lg-3
+                        .feature-item(style='gap: 35px; padding-left: 0; padding-right: 0;')
+                            .feature-item__inner
+                                h3.feature-item__title 38
+                                p.feature-item__description Транспортных средств возвращено владельцам
+                            .feature-item__img
+                                img(src="./images/content/feature/feature_2.png" srcset="./images/content/feature/feature_2.webp 1x, ./images/content/feature/feature_2@2x.webp 2x" alt="")
+                    .col-lg-3
+                        .feature-item(style='gap: 35px; padding-right: 0; padding-bottom: 0;')
+                            .feature-item__inner
+                                h3.feature-item__title 2,8 млн тонн
+                                p.feature-item__description Топлива сохранено или возвращено владельцам
+                            .feature-item__img
+                                img(src="./images/content/feature/feature_3.png" srcset="./images/content/feature/feature_3.webp 1x, ./images/content/feature/feature_3@2x.webp 2x" alt="")
+                    .col-lg-3
+                        .feature-item--horizontal__wrapper
+                            .feature-item.feature-item--horizontal.feature-item--accent(style="gap: 46px; padding-bottom: 0; padding-top: 0;")
+                                .feature-item__inner(style="padding-top: 36px;")
+                                    h3.feature-item__title +13
+                                    p.feature-item__description Лет на рынке
+                                .feature-item__img(style="height: 176px;")
+                                    img(src="./images/content/feature/feature_4.png" srcset="./images/content/feature/feature_4.webp 1x, ./images/content/feature/feature_4@2x.webp 2x" alt="")
+                            .feature-item.feature-item--horizontal(style="padding: 0 0 0 36px; align-items: flex-end;")
+                                .feature-item__inner(style="padding: 36px 0 36px 0;")
+                                    h3.feature-item__title 49
+                                    p.feature-item__description Регионов присутствия
+                                .feature-item__img(style="height: 155px;")
+                                    img(src="./images/content/feature/feature_5.png" srcset="./images/content/feature/feature_5.webp 1x, ./images/content/feature/feature_5@2x.webp 2x" alt="")
+        section.about
+            .container
+                .row
+                    h2.about__title
+                        |   Как выглядит система 
+                        span Waliot
+                .row
+                    .col-lg-6
+                        .about-item
+                            .about-item__img
+                                img(src="./images/content/about/about_1.webp" srcset="./images/content/about/about_1.webp 1x, ./images/content/about/about_1@2x.webp 2x" alt="")
+                    .col-lg-3
+                        .about__wrapper
+                            .about-item
+                                .about-item__img
+                                    img(src="./images/content/about/about_2.webp" srcset="./images/content/about/about_2.webp 1x, ./images/content/about/about_2@2x.webp 2x" alt="")
+                            .about-item
+                                .about-item__img.about-item__img--dark
+                                    img(src="./images/content/about/about_3.webp" srcset="./images/content/about/about_3.webp 1x, ./images/content/about/about_3@2x.webp 2x" alt="")
+                                    .about-item__link(style="bottom: 30px;")
+                                        +videoButton('#', 'Посмотреть видео', 'Первая мониторинговая компания')
+                    .col-lg-3
+                        .about-item
+                            .about-item__img
+                                img(src="./images/content/about/about_4.webp" srcset="./images/content/about/about_4.webp 1x, ./images/content/about/about_4@2x.webp 2x" alt="")
+                                .about-item__link(style="top: 30px;")
+                                    +videoButton('#', 'Посмотреть видео', 'Интерфейс пользователя', 'dark')
     //- .container
     //-     .wrapper(style="background-color: #ccc; border-radius: 20px; padding: 50px 0;")
     //-         .row
@@ -44,5 +141,5 @@ html(lang='ru')
 
 
     //- svg
-        //- use(xlink:href="./images/sprite.svg")
+    //- use(xlink:href="./images/sprite.svg")
     script(src="js/main.min.js" defer)

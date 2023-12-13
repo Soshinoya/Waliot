@@ -10,6 +10,7 @@ body {
 body {
     display: flex;
     flex-direction: column;
+    background-color: $bg-color;
 
     @include font(16px, 150%, $black-color) {
         @extend %inter-400;
@@ -27,7 +28,8 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
     @extend %inter-600;
 }
 
@@ -36,15 +38,15 @@ h2 {
     @include font(40px, 120%);
 }
 
-h2 {
+h3 {
     @include font(36px, 150%);
 }
 
-h3 {
+h4 {
     @include font(20px, 150%);
 }
 
-h4 {
+h5 {
     @include font(16px, 150%);
 }
 
@@ -55,6 +57,15 @@ h4 {
 .video-button {
     max-width: 260px;
     gap: 16px;
+
+    &--dark {
+        .video-button {
+            &__link,
+            &__text {
+                color: $black-color;
+            }
+        }
+    }
 
     &__play {
         display: flex;
@@ -288,6 +299,10 @@ h4 {
     }
 }
 
+.modals {
+    z-index: 1;
+}
+
 .modal-overlay {
     display: flex;
     justify-content: center;
@@ -380,6 +395,10 @@ h4 {
     transition: .2s $transitionTimingFunc;
 }
 
+.header__wrapper {
+    z-index: 1;
+}
+
 .header-top {
     background-color: $bg2-color;
 
@@ -436,10 +455,6 @@ h4 {
         &--hidden {
             display: none;
         }
-    }
-
-    &__wrapper {
-        z-index: 0;
     }
 
     &__holder {

@@ -19,6 +19,13 @@
         flex: 0 0 auto;
         width: calc(25% - 12px);
     }
+
+    .col-lg-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: calc(50% - 8px);
+    }
 }
 
 @media (max-width: 480px) {
