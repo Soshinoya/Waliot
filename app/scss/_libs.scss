@@ -21,6 +21,12 @@
     }
 }
 
+@media (max-width: 480px) {
+    .row {
+        padding: 0;
+    }
+}
+
 // @media (min-width: 768px) {
 //     .swiper-slide {
 //         width: 590px;

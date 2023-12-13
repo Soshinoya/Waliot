@@ -27,3 +27,106 @@
         width: 1480px;
     }
 }
+
+@media (max-width: 1400px) {
+    .popup-link {
+        font-size: 14px;
+    }
+
+    .header {
+        &__logo {
+            margin-right: 20px;
+
+            svg {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        &__btns {
+            gap: 8px;
+        }
+    }
+
+    .menu {
+        &__list {
+            gap: 15px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .popup-link {
+        font-size: 12px;
+        gap: 0px;
+    }
+
+    .header {
+        &__logo {
+            margin-right: 10px;
+
+            svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        &__btns {
+            gap: 5px;
+        }
+
+        .main-button {
+            padding: 8px 14px;
+            min-width: 124px;
+            font-size: 14px;
+        }
+
+        .line-icon-button {
+            padding: 8px 14px;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .search {
+            height: 42px;
+        }
+    }
+
+    .menu {
+        &__list {
+            gap: 10px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .header-top {
+        display: none;
+    }
+    
+    .header {
+        &__inner {
+            justify-content: unset;
+        }
+
+        &__holder {
+            margin-right: auto;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .search {
+            display: none;
+        }
+
+        .main-button {
+            display: none;
+        }
+    }
+
+    .hamb {
+        display: block;
+    }
+}

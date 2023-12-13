@@ -45,3 +45,23 @@ document.addEventListener('click', e => {
 
     document.body.style.overflow = 'hidden'
 })
+
+// Header burger menu
+const hamb = document.querySelector('.hamb')
+const headerModal = document.querySelector('.header-modal')
+
+hamb.addEventListener('click', () => {
+    hamb.classList.toggle('hamb--active')
+    headerModal.classList.toggle('header-modal--active')
+})
+
+// Accordion nav links in burger menu
+const headerModalNav = document.querySelector('.header-modal nav.menu')
+const headerModalNavListItem = document.querySelectorAll('.header-modal .menu__list-item')
+
+headerModalNav.addEventListener('click', e => {
+    const listItem = e.target.closest('.menu__list-item')
+    if (!listItem) return
+    headerModalNavListItem.forEach(el => el == listItem ? 0 : el.classList.remove('menu__list-item--active'))
+    listItem.classList.contains('menu__list-item--active') ? listItem.classList.remove('menu__list-item--active') : listItem.classList.add('menu__list-item--active')
+})

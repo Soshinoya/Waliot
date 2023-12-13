@@ -4,6 +4,8 @@ include ../atoms/Search.jade
 include ../atoms/LineIconButton.jade
 include ../atoms/MainButton.jade
 
+include ../atoms/BurgerMenu.jade
+
 mixin header(link, linkText, text)
     header.header__wrapper
         .header-top
@@ -49,3 +51,4 @@ mixin header(link, linkText, text)
                             +search('Что ищем?')
                             +lineIconButton('#', 'Войти', '#log-in')
                             +mainButton('#', 'Демо-версия')
+                        +burgerMenu()

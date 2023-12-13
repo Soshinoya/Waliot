@@ -7,6 +7,7 @@ html(lang='ru')
         title Waliot
         link(rel="stylesheet" href="css/style.min.css")
     body
+        // UI
         include ./components/molecules/VideoButton.jade
         include ./components/atoms/MainButton.jade
         include ./components/atoms/LineButton.jade
@@ -22,6 +23,8 @@ html(lang='ru')
         include ./components/molecules/modals/ModalCompany.jade
         include ./components/molecules/modals/ModalConnect.jade
 
+        include ./components/organisms/HeaderModal.jade
+
         .modals
             .modal-overlay
                 +modalProduct()
@@ -31,6 +34,7 @@ html(lang='ru')
                 +modalConnect()
 
         +header()
+        +headerModal()
 
     //- .container
     //-     .wrapper(style="background-color: #ccc; border-radius: 20px; padding: 50px 0;")
