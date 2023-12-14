@@ -38,6 +38,12 @@ h2 {
     @include font(40px, 120%);
 }
 
+h2 {
+    span {
+        color: $main-color;
+    }
+}
+
 h3 {
     @include font(36px, 150%);
 }
