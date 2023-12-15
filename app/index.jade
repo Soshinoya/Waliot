@@ -8,6 +8,7 @@ html(lang='ru')
         link(rel="stylesheet" href="css/style.min.css")
     body
         include ./components/molecules/VideoButton.jade
+        include ./components/atoms/ArrowButton.jade
         include ./components/atoms/MainButton.jade
         include ./components/atoms/LineButton.jade
         include ./components/atoms/CalculatorButton.jade
@@ -144,22 +145,300 @@ html(lang='ru')
                                         |   Множество
                                         span    датчиков контроля
                                     p.control__text
-                                        |   Многофункциональное оборудование от одного из ведущих российских производителей оборудования автомониторинга всех видов транспорта, который по праву заслужил высокий уровень доверия со стороны покупателей. 
+                                        |   Многофункциональное оборудование от одного из ведущих российских производителей оборудования автомониторинга всех видов транспорта, который по праву заслужил высокий уровень доверия со стороны покупателей.
                                         br
                                         |   Мы предлагаем не просто купить и установить спутниковый мониторинг ГЛОНАСС\GPS, а комплексное решение, контроль транспорта, который включает в себя линейку различного телематического оборудования, системы транспортной аналитики, тахографы и карты водителя по выгодной цене.
                                 +mainButton('#', 'Подобрать оборудование')
                         .col-lg-7
                             .control__images
-                                .control__img
-                                    img(src="./images/content/control/control_1.png", alt="")
-                                .control__img
-                                    img(src="./images/content/control/control_2.png", alt="")
-                                .control__img
-                                    img(src="./images/content/control/control_3.png", alt="")
-                                .control__img
-                                    img(src="./images/content/control/control_4.png", alt="")
-                                .control__img
-                                    img(src="./images/content/control/control_5.png", alt="")
+                                .control__images-top
+                                    .control__img
+                                        img(src="./images/content/control/control_1.png" alt="")
+                                    .control__img
+                                        img(src="./images/content/control/control_2.png" alt="")
+                                    .control__img
+                                        img(src="./images/content/control/control_3.png" alt="")
+                                .control__images-bottom
+                                    .control__img
+                                        img(src="./images/content/control/control_4.png" alt="")
+                                    .control__img
+                                        img(src="./images/content/control/control_5.png" alt="")
+        section.monitoring
+            .container
+                .row
+                    .monitoring__inner
+                        .monitoring__header
+                            h2.monitoring__title Возможности системы мониторинга
+                            .monitoring__slider-button__wrapper
+                                .monitoring__slider-button.monitoring__slider-button--prev
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#angle")
+                                .monitoring__slider-button.monitoring__slider-button--next
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#angle")
+                        .monitoring__slider
+                            .swiper
+                                .swiper-wrapper
+                                    .swiper-slide
+                                        .monitoring__slider-slide
+                                            h5.monitoring__slider-slide__title Контроль местоположения транспорта
+                                            p.monitoring__slider-slide__text Программный комплекс мониторинга Waliot® позволяет в режиме времени, приближённому к реальному, контролировать состояние, местоположение и дополнительные функции всех транспортных средств Компании на детализированное карте местности с точностью до дома.
+                                    .swiper-slide
+                                        .monitoring__slider-slide
+                                            h5.monitoring__slider-slide__title Контроль расхода топлива
+                                            p.monitoring__slider-slide__text Решение Waliot нацелено на оперативное реагирование и выявление фактов хищений топлива. Среди способов контроля: датчик уровня топлива, датчик расхода топлива, данных CAN-машины или на основании данных спутникового позиционирования по принятой на предприятии норме расхода.
+                                    .swiper-slide
+                                        .monitoring__slider-slide
+                                            h5.monitoring__slider-slide__title История движения всех ТС
+                                            p.monitoring__slider-slide__text Waliot® - платформа с поддержкой облачных технологий, позволяющая осуществлять автоматическое формирование путевых листов в режиме реального времени.
+                                    .swiper-slide
+                                        .monitoring__slider-slide
+                                            h5.monitoring__slider-slide__title Оповещение об опасной езде
+                                            p.monitoring__slider-slide__text Разработанный нами анализ качества и стиля вождения способен фиксировать следующие нарушения: резкие ускорения и торможения, резкое маневрирование, превышение скоростного режима и движение в тёмное время суток.
+                                    .swiper-slide
+                                        .monitoring__slider-slide
+                                            h5.monitoring__slider-slide__title Контроль местоположения транспорта
+                                            p.monitoring__slider-slide__text Программный комплекс мониторинга Waliot® позволяет в режиме времени, приближённому к реальному, контролировать состояние, местоположение и дополнительные функции всех транспортных средств Компании на детализированное карте местности с точностью до дома.
+                                    .swiper-slide
+                                        .monitoring__slider-slide
+                                            h5.monitoring__slider-slide__title Контроль расхода топлива
+                                            p.monitoring__slider-slide__text Решение Waliot нацелено на оперативное реагирование и выявление фактов хищений топлива. Среди способов контроля: датчик уровня топлива, датчик расхода топлива, данных CAN-машины или на основании данных спутникового позиционирования по принятой на предприятии норме расхода.
+                                    .swiper-slide
+                                        .monitoring__slider-slide
+                                            h5.monitoring__slider-slide__title История движения всех ТС
+                                            p.monitoring__slider-slide__text Waliot® - платформа с поддержкой облачных технологий, позволяющая осуществлять автоматическое формирование путевых листов в режиме реального времени.
+                                    .swiper-slide
+                                        .monitoring__slider-slide
+                                            h5.monitoring__slider-slide__title Оповещение об опасной езде
+                                            p.monitoring__slider-slide__text Разработанный нами анализ качества и стиля вождения способен фиксировать следующие нарушения: резкие ускорения и торможения, резкое маневрирование, превышение скоростного режима и движение в тёмное время суток.
+        section.icons
+            .container
+                .icons__holder
+                    .row
+                        .icons__inner
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#database")
+                                b.icons-item__text ПО зарегистрировано в едином реестре российских программ для ЭВМ и БД
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#cloud")
+                                b.icons-item__text Автоматический перенос данных из других систем мониторинга
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#stat")
+                                b.icons-item__text Точность показаний 99,7%
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#speed")
+                                b.icons-item__text Скорость построения отчётов - до 5 секунд
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#uptime")
+                                b.icons-item__text Аптайм - 99,95%
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#flag")
+                                b.icons-item__text Сервера в России
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#logo-icon")
+                                b.icons-item__text Решение собственной разработки
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#robot")
+                                b.icons-item__text Использование технологий машинного обучения в топливной аналитике
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#telegram")
+                                b.icons-item__text
+                                    |   Уведомления
+                                    br
+                                    |   в Telegram
+                            .icons-item
+                                .icons-item__icon
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#worker")
+                                b.icons-item__text Выезд инженера в течение 3-х дней
+        section.industry
+            .container
+                .industry__inner
+                    .row
+                        h2.industry__title Отраслевые решения
+                    .row
+                        .col-lg-4
+                            .industry-item
+                                .industry-item__content
+                                    h4.industry-item__title ГЛОНАСС для сельского хозяйства
+                                    p.industry-item__text Позволяет полностью контролировать работу тракторов, комбайнов, грузовых машин и прочей сельхозтехники
+                                .industry-item__img
+                                    img(src="./images/content/industry/combine.png" alt="combine")
+                                +arrowButton('#')
+                        .col-lg-4
+                            .industry-item
+                                .industry-item__content
+                                    h4.industry-item__title Международные и междугородние перевозки
+                                    p.industry-item__text Данный комплекс мероприятий нацелен на снижение издержек и сроков доставки грузов
+                                .industry-item__img
+                                    img(src="./images/content/industry/truck.png" alt="truck")
+                                +arrowButton('#')
+                        .col-lg-4
+                            .industry-item
+                                .industry-item__content
+                                    h4.industry-item__title Пассажирские перевозки
+                                    p.industry-item__text Позволяет перевозчику улучшить качество предоставляемых услуг, благодаря соблюдению многих факторов
+                                .industry-item__img
+                                    img(src="./images/content/industry/van.png" alt="van")
+                                +arrowButton('#')
+        section.tariff
+            .container
+                .tariff__inner
+                    .row
+                        h2.tariff__title Выберите свой тариф
+                    .row
+                        .tariff__items
+                            .tariff-item
+                                .tariff-item__header
+                                    .tariff-item__icon(style="background-color: #3BA0EF;")
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#car")
+                                    .tariff-item__subtitle-inner
+                                        b.tariff-item__subtitle Базовый
+                                    h3.tariff-item__title
+                                        |   399 ₽
+                                        span    / месяц
+                                .tariff-item__body
+                                    ul.tariff-item__plans
+                                        - const plansDefault=[{bold:'',label:"Онлайн контроль местоположения",check: true},{bold:'',label:"Контроль топлива",check: true},{bold:'',label:"Автоматизированная отчётность по ключевым показателям",check: true},{bold:'',label:"Техническое обслуживание",check: true},{bold:'',label:"Уведомления в Telegram",check: true},{bold:'',label:"Шеринг объектов",check: true},{bold:'',label:"Мобильное приложение",check: true},{bold:'',label:"Бизнес аналитика",check: true},{bold:'',label:"Интеграции с 1С:УАТ",check: false},{bold:'',label:"Оплата GPRS трафика",check: false},{bold:'',label:"Техническая поддержка",check: false},{bold:'',label:"Интеграции с процессинговыми компаниями",check: false},{bold:'',label:"Интеграции в РНИС г. Москвы",check: false},{bold:'',label:"Сельское хозяйство",check: false},{bold:'',label:"Персональный менеджер",check: false},{label:"хранение информации на нашем сервере",check: true,bold: "6 месяцев "}];
+                                        for planObj in plansDefault
+                                            li.tariff-item__plan
+                                                .tariff-item__plan-icon
+                                                    svg
+                                                        use(xlink:href= planObj.check == true ? "./images/sprite.svg#check" : "./images/sprite.svg#xmark")
+                                                p.tariff-item__plan-text
+                                                    b= planObj.bold
+                                                    = planObj.label
+                                .tariff-item__btn
+                                    +mainButton('#', 'Подключить Waliot')
+                            .tariff-item
+                                .tariff-item__header
+                                    .tariff-item__icon(style="background-color: #FE9E14;")
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#truck")
+                                    .tariff-item__subtitle-inner
+                                        b.tariff-item__subtitle Оптимальный
+                                        span Популярный выбор
+                                    h3.tariff-item__title
+                                        |   499 ₽
+                                        span    / месяц
+                                .tariff-item__body
+                                    .tariff-item__plans
+                                        - const plansOptimal=[{bold:'',label:"Онлайн контроль местоположения",check: true},{bold:'',label:"Контроль топлива",check: true},{bold:'',label:"Автоматизированная отчётность по ключевым показателям",check: true},{bold:'',label:"Техническое обслуживание",check: true},{bold:'',label:"Уведомления в Telegram",check: true},{bold:'',label:"Шеринг объектов",check: true},{bold:'',label:"Мобильное приложение",check: true},{bold:'',label:"Бизнес аналитика",check: true},{bold:'',label:"Интеграции с 1С:УАТ",check: true},{bold:'',label:"Оплата GPRS трафика",check: true},{bold:'',label:"Техническая поддержка",check: true},{bold:'',label:"Интеграции с процессинговыми компаниями",check: false},{bold:'',label:"Интеграции в РНИС г. Москвы",check: false},{bold:'',label:"Сельское хозяйство",check: false},{bold:'',label:"Персональный менеджер",check: false},{label:"хранение информации на нашем сервере",check: true,bold: "18 месяцев "}];
+                                        for planObj in plansOptimal
+                                            .tariff-item__plan
+                                                .tariff-item__plan-icon
+                                                    svg
+                                                        use(xlink:href= planObj.check == true ? "./images/sprite.svg#check" : "./images/sprite.svg#xmark")
+                                                p.tariff-item__plan-text
+                                                    b= planObj.bold
+                                                    = planObj.label
+                                .tariff-item__btn
+                                    +mainButton('#', 'Подключить Waliot')
+                            .tariff-item
+                                .tariff-item__header
+                                    .tariff-item__icon(style="background-color: #E7574D;")
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#combine")
+                                    .tariff-item__subtitle-inner
+                                        b.tariff-item__subtitle Максимум
+                                    h3.tariff-item__title
+                                        |   519 ₽
+                                        span    / месяц
+                                .tariff-item__body
+                                    .tariff-item__plans
+                                        - const plansMax=[{bold:'',label:"Онлайн контроль местоположения",check: true},{bold:'',label:"Контроль топлива",check: true},{bold:'',label:"Автоматизированная отчётность по ключевым показателям",check: true},{bold:'',label:"Техническое обслуживание",check: true},{bold:'',label:"Уведомления в Telegram",check: true},{bold:'',label:"Шеринг объектов",check: true},{bold:'',label:"Мобильное приложение",check: true},{bold:'',label:"Бизнес аналитика",check: true},{bold:'',label:"Интеграции с 1С:УАТ",check: true},{bold:'',label:"Оплата GPRS трафика",check: true},{bold:'',label:"Техническая поддержка",check: true},{bold:'',label:"Интеграции с процессинговыми компаниями",check: true},{bold:'',label:"Интеграции в РНИС г. Москвы",check: true},{bold:'',label:"Сельское хозяйство",check: true},{bold:'',label:"Персональный менеджер",check: true},{label:"хранение информации на нашем сервере",check: true,bold: "24 месяца "}];
+                                        for planObj in plansMax
+                                            .tariff-item__plan
+                                                .tariff-item__plan-icon
+                                                    svg
+                                                        use(xlink:href= planObj.check == true ? "./images/sprite.svg#check" : "./images/sprite.svg#xmark")
+                                                p.tariff-item__plan-text
+                                                    b= planObj.bold
+                                                    = planObj.label
+                                .tariff-item__btn
+                                    +mainButton('#', 'Подключить Waliot')
+        section.calculator
+            .container
+                .calculator__wrapper
+                    .row
+                        .calculator__header
+                            h2.calculator__title Калькулятор эффективности
+                            p.calculator__text Рассчитайте плановый экономический эффект после внедрения системы мониторинга транспорта Waliot
+                    .calculator__holder
+                        .row
+                            .calculator__inner
+                                .calculator-config
+                                    h5.calculator-config__title Введите вводные данные для расчёта эффективности
+                                    form.calculator-config__form(action="#")
+                                        .calculator-config__field-inner
+                                            .calculator-config__field
+                                                .calculator-config__field-top
+                                                    p.calculator-config__field-title Количество автомобилей:
+                                                    .calculator-config__field-value(type="number" id="calculator-config-cars-count-value")
+                                                    //- input.calculator-config__field-value(type="number")
+                                                input.calculator-config__field-range(id="calculator-config-cars-count" type="text")
+                                            .calculator-config__field
+                                                .calculator-config__field-top
+                                                    p.calculator-config__field-title Средний километраж за месяц:
+                                                    .calculator-config__field-value(type="number" id="calculator-config-kilometrage-value")
+                                                    //- input.calculator-config__field-value(type="number")
+                                                input.calculator-config__field-range(id="calculator-config-kilometrage" type="text")
+                                        .calculator-config__field-inner
+                                            .calculator-config__field
+                                                .calculator-config__field-top
+                                                    p.calculator-config__field-title Средний расход топлива, л/100 км:
+                                                    .calculator-config__field-value(type="number" id="calculator-config-fuel-consumption-value")
+                                                    //- input.calculator-config__field-value(type="number")
+                                                input.calculator-config__field-range(id="calculator-config-fuel-consumption" type="text")
+                                            .calculator-config__field
+                                                .calculator-config__field-top
+                                                    p.calculator-config__field-title Стоимость топлива
+                                                    .calculator-config__field-value(type="number" id="calculator-config-fuel-price-value")
+                                                    //- input.calculator-config__field-value(type="number")
+                                                input.calculator-config__field-range(id="calculator-config-fuel-price" type="text")
+                                        .calculator-config__field-inner
+                                            .calculator-config__field
+                                                p.calculator-config__field-title Тип транспортного средства:
+                                                select.calculator-config__field-select(id="calculator-config-select-vehicle-type")
+                                                    option(value='cargo') Грузовой
+                                                    option(value='passenger') Легковой
+                                            .calculator-config__field
+                                                p.calculator-config__field-title Тип топлива:
+                                                select.calculator-config__field-select(id="calculator-config-select-fuel-type")
+                                                    option(value='diesel') Дизель
+                                                    option(value='gasoline') Бензин
+                                                    option(value='gas') Газ
+                                                    option(value='electric') Электричество
+                                                    option(value='hydrogen') Водород
+                                .calculator-output
+                                    .calculator-output__content
+                                        p.calculator-output__subtitle Экономия за год составит:
+                                        h3.calculator-output__title 242 850 ₽
+                                        p.calculator-output__payback
+                                            |   Окупаемость: 
+                                            b   34 дня.
+                                    .calculator-output__btn
+                                        +calculatorButton('#', 'Хочу так же!')
+                                        p.calculator-output__hint * Расчёт примерный - точная сумма зависит от индивидуальный параметров
     //- .container
     //-     .wrapper(style="background-color: #ccc; border-radius: 20px; padding: 50px 0;")
     //-         .row

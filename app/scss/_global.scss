@@ -56,6 +56,10 @@ h5 {
     @include font(16px, 150%);
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .description {
     font-size: 14px;
 }
@@ -66,6 +70,7 @@ h5 {
 
     &--dark {
         .video-button {
+
             &__link,
             &__text {
                 color: $black-color;
@@ -107,6 +112,27 @@ h5 {
         .video-button__play {
             box-shadow: 0px 8px 30px -8px rgba($main-color, 0.7)
         }
+    }
+}
+
+.arrow-button {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 500px 0px 500px 500px;
+    background-color: $main-color;
+    box-shadow: none;
+    transition: box-shadow .2s $transitionTimingFunc;
+
+    svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    @include hover() {
+        box-shadow: 0px 8px 30px -8px rgba($main-color, 0.7)
     }
 }
 
@@ -513,7 +539,9 @@ h5 {
     transform: translateX(1000vh);
     background-color: $bg-color;
     transition: transform .3s $transitionTimingFunc;
-    min-height: calc(100% - 76px);
+    height: calc(100dvh - 76px);
+    z-index: 1;
+    overflow-y: auto;
 
     &__holder,
     &__wrapper,

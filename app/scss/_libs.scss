@@ -1,5 +1,7 @@
 // @import "../../node_modules/bootstrap/scss/bootstrap";
 @import '../../node_modules/swiper/swiper-bundle.min';
+@import '../../node_modules/ion-rangeslider/css/ion.rangeSlider';
+@import '../../node_modules/select2/dist/css/select2.min';
 
 
 $grid-breakpoints: (
@@ -19,9 +21,9 @@ $container-max-widths: (
   xxl: 1480px
 );
 
-$grid-columns:                12;
-$grid-gutter-width:           16px;
-$grid-row-columns:            6;
+$grid-columns:      12;
+$grid-gutter-width: 16px;
+$grid-row-columns:  6;
 
 // Bootstrap
 // scss-docs-start import-stack
@@ -58,7 +60,7 @@ $grid-row-columns:            6;
 @import "../../node_modules/bootstrap/scss/list-group";
 @import "../../node_modules/bootstrap/scss/close";
 @import "../../node_modules/bootstrap/scss/toasts";
-@import "../../node_modules/bootstrap/scss/modal";
+// @import "../../node_modules/bootstrap/scss/modal";
 @import "../../node_modules/bootstrap/scss/tooltip";
 @import "../../node_modules/bootstrap/scss/popover";
 @import "../../node_modules/bootstrap/scss/carousel";
@@ -92,6 +94,13 @@ $grid-row-columns:            6;
         width: calc(25% - 12px);
     }
 
+    .col-lg-4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: calc(33.33333333% - 11px);
+    }
+
     .col-lg-5 {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
@@ -121,10 +130,58 @@ $grid-row-columns:            6;
 }
 
 // @media (min-width: 768px) {
-//     .swiper-slide {
-//         width: 590px;
-//     }
+    .monitoring .swiper-slide {
+        width: 320px;
+    }
 // }
+
+.calculator {
+    .irs-min,
+    .irs-max,
+    .irs-single {
+        display: none;
+    }
+}
+
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--single, .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple,
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+
+.select2-container--open .select2-dropdown--above,
+.select2-container--open .select2-dropdown--below {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: $main-color;
+}
+
+.select2-container--default .select2-results__option--selected {
+    background-color: $sep-color;
+}
+
+.select2-results__option {
+    padding: 10px;
+}
+
+.select2-container {
+    .select2-selection__arrow {
+        display: none;
+    }
+
+    &--open {
+        .calculator-config__field-select__arrow svg {
+            transform: rotate(-180deg);
+        }
+    }
+}
 
 // .pagination-bullet.swiper-pagination-bullet-active {
 //     opacity: 1;
