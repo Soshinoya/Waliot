@@ -161,7 +161,7 @@ h5 {
     border: 1px solid $sep-color;
     border-radius: 50px;
     cursor: pointer;
-    
+
     transition: border .2s $transitionTimingFunc, color .2s $transitionTimingFunc;
 
     &--active {
@@ -668,5 +668,120 @@ h5 {
                 height: 16px;
             }
         }
+    }
+}
+
+.footer {
+    padding: 40px 0 20px;
+
+    &__wrapper {
+        padding: 0 56px;
+    }
+}
+
+.footer-top,
+.footer-body,
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-top {
+    gap: 16px;
+    padding-bottom: 40px;
+
+    &__logo svg {
+        width: 146px;
+        height: 54px;
+    }
+
+    &__connect {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &__tel {
+        font-size: 24px;
+        @extend %inter-600;
+    }
+
+    &__icons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    &__icon,
+    &__up {
+        display: flex;
+        width: 54px;
+        height: 54px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $sep-color;
+        border-radius: 500px;
+        cursor: pointer;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &__up {
+        transform: rotate(180deg);
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+.footer-body {
+    padding: 40px 0;
+    border-top: 1px solid $sep-color;
+    border-bottom: 1px solid $sep-color;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.footer-bottom {
+    padding-top: 40px;
+
+    &__copy p,
+    &__made p {
+        font-size: 14px;
+        color: $txt2-color;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    &__made {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__made-logo svg {
+        width: 52px;
+        height: 11px;
     }
 }

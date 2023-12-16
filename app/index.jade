@@ -16,6 +16,7 @@ html(lang='ru')
         include ./components/atoms/Link.jade
         include ./components/atoms/LinkTwo.jade
         include ./components/organisms/Header.jade
+        include ./components/organisms/Footer.jade
 
         include ./components/molecules/modals/ModalProduct.jade
         include ./components/molecules/modals/ModalSolutions.jade
@@ -438,6 +439,149 @@ html(lang='ru')
                                     .calculator-output__btn
                                         +calculatorButton('Хочу так же!', 'submit')
                                         p.calculator-output__hint * Расчёт примерный - точная сумма зависит от индивидуальный параметров
+        section.client
+            .container
+                .row
+                    .client__inner
+                        .client__header
+                            h2.client__title Клиенты и показатели
+                            .client__slider-button__wrapper
+                                .client__slider-button.client__slider-button--prev
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#angle")
+                                .client__slider-button.client__slider-button--next
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#angle")
+                        .client__slider
+                            .swiper
+                                .swiper-wrapper
+                                    .swiper-slide
+                                        .client__slider-slide
+                                            .client__slider-slide__img
+                                                img(src="./images/content/logo/rosseti.png" alt="Россети")
+                                            .client__slider-slide__content
+                                                h3.client__slider-slide__title 43%
+                                                p.client__slider-slide__text Снизился расход топлива по сравнению с периодом, когда система мониоринга транспорта Waliot не была установлена на нашх автомобилях
+                                    .swiper-slide
+                                        .client__slider-slide
+                                            .client__slider-slide__img
+                                                img(src="./images/content/logo/gasprom.png" alt="Газпром")
+                                            .client__slider-slide__content
+                                                h3.client__slider-slide__title 39%
+                                                p.client__slider-slide__text Снизился расход топлива по сравнению с периодом, когда система мониоринга транспорта Waliot не была установлена на нашх автомобилях
+                                    .swiper-slide
+                                        .client__slider-slide
+                                            .client__slider-slide__img
+                                                img(src="./images/content/logo/rosneft.png" alt="Роснефть")
+                                            .client__slider-slide__content
+                                                h3.client__slider-slide__title 44%
+                                                p.client__slider-slide__text Снизился расход топлива по сравнению с периодом, когда система мониоринга транспорта Waliot не была установлена на нашх автомобилях
+                                    .swiper-slide
+                                        .client__slider-slide
+                                            .client__slider-slide__img
+                                                img(src="./images/content/logo/rosseti.png" alt="Россети")
+                                            .client__slider-slide__content
+                                                h3.client__slider-slide__title 43%
+                                                p.client__slider-slide__text Снизился расход топлива по сравнению с периодом, когда система мониоринга транспорта Waliot не была установлена на нашх автомобилях
+                                    .swiper-slide
+                                        .client__slider-slide
+                                            .client__slider-slide__img
+                                                img(src="./images/content/logo/gasprom.png" alt="Газпром")
+                                            .client__slider-slide__content
+                                                h3.client__slider-slide__title 39%
+                                                p.client__slider-slide__text Снизился расход топлива по сравнению с периодом, когда система мониоринга транспорта Waliot не была установлена на нашх автомобилях
+                                    .swiper-slide
+                                        .client__slider-slide
+                                            .client__slider-slide__img
+                                                img(src="./images/content/logo/rosneft.png" alt="Роснефть")
+                                            .client__slider-slide__content
+                                                h3.client__slider-slide__title 44%
+                                                p.client__slider-slide__text Снизился расход топлива по сравнению с периодом, когда система мониоринга транспорта Waliot не была установлена на нашх автомобилях
+                        .client__btn
+                            +mainButton('#', 'Попробовать демо версию')
+        section.awards
+            .container
+                .awards__holder
+                    .row
+                        .awards__header
+                            h2.awards__title Награды
+                            +lineButton('#', 'Смотреть все награды')
+                    .row
+                        .col-lg-3
+                            .awards-item
+                                .awards-item__img
+                                    img(src="./images/content/awards/global_cio.png" alt="Награда 'Проект года'")
+                        .col-lg-3
+                            .awards-item
+                                .awards-item__img
+                                    img(src="./images/content/awards/global_cio.png" alt="Награда 'Проект года'")
+                        .col-lg-3
+                            .awards-item
+                                .awards-item__img
+                                    img(src="./images/content/awards/global_cio.png" alt="Награда 'Проект года'")
+                        .col-lg-3
+                            .awards-item
+                                .awards-item__img
+                                    img(src="./images/content/awards/global_cio.png" alt="Награда 'Проект года'")
+        section.case
+            .container
+                .case__wrapper
+                    .row
+                        .case__header
+                            h2.case__title Кейсы
+                            +lineButton('#', 'Смотреть все кейсы')
+                    .row
+                        .col-lg-4
+                            .case-item
+                                a.case-item__img(href="#")
+                                    img(src="./images/content/case/truck.jpg" alt="truck")
+                                h5.case-item__title
+                                    a(href="#") Таинственная пропажа навигационного оборудования
+                                .case-item__stats
+                                    .case-item__stat
+                                        .case-item__stat-icon
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#clock")
+                                        p.case-item__stat-text 7 минут назад
+                                    .case-item__stat
+                                        .case-item__stat-icon
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#eye")
+                                        p.case-item__stat-text 4141
+                        .col-lg-4
+                            .case-item
+                                a.case-item__img(href="#")
+                                    img(src="./images/content/case/truck.jpg" alt="truck")
+                                h5.case-item__title
+                                    a(href="#") Механик из Ада
+                                .case-item__stats
+                                    .case-item__stat
+                                        .case-item__stat-icon
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#clock")
+                                        p.case-item__stat-text 7 минут назад
+                                    .case-item__stat
+                                        .case-item__stat-icon
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#eye")
+                                        p.case-item__stat-text 4141
+                        .col-lg-4
+                            .case-item
+                                a.case-item__img(href="#")
+                                    img(src="./images/content/case/truck.jpg" alt="truck")
+                                h5.case-item__title
+                                    a(href="#") Змеиное логово механика или как мы почти попали
+                                .case-item__stats
+                                    .case-item__stat
+                                        .case-item__stat-icon
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#clock")
+                                        p.case-item__stat-text 7 минут назад
+                                    .case-item__stat
+                                        .case-item__stat-icon
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#eye")
+                                        p.case-item__stat-text 4141
         section.quiz
             .container
                 .quiz__wrapper
@@ -451,18 +595,18 @@ html(lang='ru')
                                 .quiz__inner
                                     .quiz-content
                                         .quiz-content__step Шаг 1 из 4
-                                        h5.quiz-content__title Какие автомобили необходимо оснастить системой ГЛОНАСС?
+                                        h4.quiz-content__title Какие автомобили необходимо оснастить системой ГЛОНАСС?
                                         .quiz-content__variants
                                             +lineButtonTag('Легковые', 'option-1')
                                             +lineButtonTag('Грузовые', 'option-2')
                                             +lineButtonTag('Спецтехника', 'option-3')
-                                            +lineButtonTag('Все типы ТС', 'option-5')
+                                            +lineButtonTag('Все типы ТС', 'option-4')
                                     +mainButton('', 'Следующий вопрос')
                             template#quiz-second
                                 .quiz__inner
                                     .quiz-content
                                         .quiz-content__step Шаг 2 из 4
-                                        h5.quiz-content__title Какие параметры хотите контролировать?
+                                        h4.quiz-content__title Какие параметры хотите контролировать?
                                         .quiz-content__variants
                                             +lineButtonTag('Местоположение и контроль топлива', 'option-1')
                                             +lineButtonTag('Местоположение', 'option-2')
@@ -473,7 +617,7 @@ html(lang='ru')
                                 .quiz__inner
                                     .quiz-content
                                         .quiz-content__step Шаг 3 из 4
-                                        h5.quiz-content__title Выберите удобный вариант места монтажа?
+                                        h4.quiz-content__title Выберите удобный вариант места монтажа?
                                         .quiz-content__variants
                                             +lineButtonTag('У нас', 'option-1')
                                             +lineButtonTag('У вас на базе', 'option-2')
@@ -482,7 +626,7 @@ html(lang='ru')
                                 .quiz__inner
                                     .quiz-content
                                         .quiz-content__step Шаг 4 из 4
-                                        h5.quiz-content__title В каком городе находятся автомобили?
+                                        h4.quiz-content__title В каком городе находятся автомобили?
                                         .quiz-content__variants
                                             +lineButtonTag('У нас', 'option-1')
                                             +lineButtonTag('У вас на базе', 'option-2')
@@ -492,22 +636,179 @@ html(lang='ru')
                                     p.quiz-form__subtitle
                                         |   Получите персональную скидку 
                                         span    10%
-                                    h5.quiz-form__title Заполните данные для получения расчёта
+                                    h4.quiz-form__title Заполните данные для получения расчёта
                                     .quiz-form
                                         .quiz-form__field
-                                            input.quiz-form__field-input(type="text", placeholder="Ваше имя" name="quiz-form-name" required)
-                                            input.quiz-form__field-input(type="number", placeholder="Ваш телефон" name="quiz-form-tel" required)
+                                            input.quiz-form__field-input(type="text" placeholder="Ваше имя" name="quiz-form-name" required)
+                                            input.quiz-form__field-input(type="text" placeholder="Ваш телефон" name="quiz-form-tel" required)
                                         .quiz-form__field
-                                            input.quiz-form__field-input(type="email", placeholder="Ваш E-mail" name="quiz-form-email" required)
+                                            input.quiz-form__field-input(type="email" placeholder="Ваш E-mail" name="quiz-form-email" required)
                                             +mainButton('', 'Узнать стоимость')
                                     p.quiz-form__hint 
                                         |   Нажимая «Узнать стоимость», я даю согласие на 
                                         +link('#', 'обработку персональных данных')
-    //- .container
-    //-     .wrapper(style="background-color: #ccc; border-radius: 20px; padding: 50px 0;")
-    //-         .row
-    //-             .col(style="background-color: #363636;")
-    //-                 p(style="height: 100vh;") content
+        section.media
+            .container
+                .media__wrapper
+                    .row
+                        .media__header
+                            h2.media__title СМИ о нас
+                            +lineButton('#', 'Смотреть все кейсы')
+                    .row
+                        .col-lg-6
+                            .media-item
+                                a.media-item__img(href="#")
+                                    img(src="./images/content/media/truck.jpg" alt="truck")
+                                p.media-item__meta 12 октября 2023 года / РБК
+                                h5.media-item__title
+                                    a(href="#") Компанией «ПМК» разработана альтернатива зарубежным ПО в области ГЛОНАСС
+                                +linkTwo('#', 'Прочитать на РБК')
+                        .col-lg-6
+                            .media-item
+                                a.media-item__img(href="#")
+                                    img(src="./images/content/media/truck.jpg" alt="truck")
+                                p.media-item__meta 7 марта 2023 / vc.ru
+                                h5.media-item__title
+                                    a(href="#") Как выбрать поставщика услуг ГЛОНАСС?
+                                +linkTwo('#', 'Прочитать на vc.ru')
+        section.review
+            .container
+                .review__wrapper
+                    .row
+                        .review__header
+                            h2.review__title Отзывы
+                            +lineButton('#', 'Читать все отзывы')
+                    .row
+                        .col-lg-4
+                            .review-item
+                                .review-item__top
+                                    b.review-item__author Дарья Д.
+                                    p.review-item__date 27 сентября 2023
+                                .review-item__rating
+                                    .review-item__stars
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                    b.review-item__stars-count 5
+                                .review-item__body
+                                    p.review-item__text С компанией работаем не один год- профессионалы, знатоки своего дела и просто отзывчивые люди. Программа удобная, интерфейс понятный, формирование отчетов по необходимым нам критериям. Быстро и без накладок. В общем сервисом и довольны, а также работой техподдерки при возникших вопросах.
+                        .col-lg-4
+                            .review-item
+                                .review-item__top
+                                    b.review-item__author Лёша Николаев
+                                    p.review-item__date 27 сентября 2023
+                                .review-item__rating
+                                    .review-item__stars
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                    b.review-item__stars-count 5
+                                .review-item__body
+                                    p.review-item__text Программное обеспечение Waliot приятно порадовало. Оперативно можно получить электронную отчетность, удобно и все четко. Отвечают живые люди, когда звонишь, причем быстро и по делу. Доволен.
+                        .col-lg-4
+                            .review-item
+                                .review-item__top
+                                    b.review-item__author Дарья Д.
+                                    p.review-item__date 27 сентября 2023
+                                .review-item__rating
+                                    .review-item__stars
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                        .review-item__star
+                                            svg
+                                                use(xlink:href="./images/sprite.svg#star")
+                                    b.review-item__stars-count 5
+                                .review-item__body
+                                    p.review-item__text С компанией работаем не один год- профессионалы, знатоки своего дела и просто отзывчивые люди. Программа удобная, интерфейс понятный, формирование отчетов по необходимым нам критериям. Быстро и без накладок. В общем сервисом и довольны, а также работой техподдерки при возникших вопросах.
+        section.step
+            .container
+                .step__wrapper
+                    .row
+                        .step__header
+                            h2.step__title Как мы работаем?
+                    .row
+                        .step__items
+                            .step-item
+                                .step-item__top
+                                    p.step-item__num 01
+                                    .step-item__sep
+                                p.step-item__text Вы оставляете заявку на сайте или по телефону
+                                +linkTwo('#', 'Оставить заявку')
+                            .step-item
+                                .step-item__top
+                                    p.step-item__num 02
+                                    .step-item__sep
+                                p.step-item__text Мы подбираем решение и формируем коммерческое предложение
+                            .step-item
+                                .step-item__top
+                                    p.step-item__num 03
+                                    .step-item__sep
+                                p.step-item__text Мы устанавливаем и настраиваем оборудование на вашей территории или нашей базе
+                            .step-item
+                                .step-item__top
+                                    p.step-item__num 04
+                                    .step-item__sep
+                                p.step-item__text Вы заходите в кабинет на сайте или в приложении и осуществляете контроль транспорта
+                            .step-item
+                                .step-item__top
+                                    p.step-item__num 05
+                                    .step-item__sep
+                                p.step-item__text Мы обучаем работе с приложением и осуществляем поддержку решения на всём периоде работы
+        section.offer
+            .container
+                .offer__wrapper
+                    .row
+                        .offer__header
+                            h2.offer__title Waliot запустила дилерскую сеть
+                            p.offer__text Наши партнёры успешно ведут свой бизнес на территории России и странах СНГ. Мы приглашаем к сотрудничеству юридических лиц и индивидуальных предпринимателей и предлагаем индивидуальные условия по использованию средств для наших партнёров. Мы предлагаем обучение, индивидуальную техническую поддержку и скидку для участников дилерской сети.
+                    .offer__holder
+                        .row
+                            .offer__inner
+                                h4.offer-form__title Заполните форму и мы свяжемся с вами в ближайшее время
+                                form.offer-form(action="#")
+                                    input.offer-form__input(type="text" placeholder="Ваше имя" name="offer-form-name")
+                                    input.offer-form__input(type="text" placeholder="Ваш телефон" name="offer-form-tel")
+                                    input.offer-form__input(type="text" placeholder="Ваш E-mail" name="offer-form-email")
+                                    button.main-button(type="submit")
+                                        b Стать дилером
+                                p.offer-form__hint 
+                                    |   Нажимая «Стать дилером», я даю согласие на 
+                                    +link('#', 'обработку персональных данных')
+        +footer()
 
 
     //- svg

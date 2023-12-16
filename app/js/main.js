@@ -98,15 +98,38 @@ window.onload = () => {
     window.addEventListener('resize', setMonitoringSliderOffset)
     setMonitoringSliderOffset()
 
+    // 'Client' Slider
+    const clientSliderConfig = new Swiper('.client__slider > .swiper', {
+        spaceBetween: 16,
+        slidesPerView: 'auto',
+        navigation: {
+            nextEl: '.client__slider-button--next',
+            prevEl: '.client__slider-button--prev'
+        },
+        // breakpoints: {
+        //     // when window width is >= 320px
+        //     320: {
+        //         slidesPerView: 'auto',
+        //     },
+        //     // when window width is >= 480px
+        //     480: {
+        //         slidesPerView: 2,
+        //     },
+        //     // when window width is >= 768px
+        //     768: {
+        //         slidesPerView: 'auto',
+        //     }
+        // }
+    })
 
+    // Выход слайдера 'Client' за пределы контейнера
+    const clientContainer = document.querySelector('.client > .container')
+    const clientSliderElem = document.querySelector('.client__slider')
 
+    const setClientSliderOffset = () => clientSliderElem.style.marginRight = `-${clientContainer.getBoundingClientRect().left + 76}px`
 
-
-
-
-
-
-
+    window.addEventListener('resize', setClientSliderOffset)
+    setClientSliderOffset()
 
     // Calculator
     const resultPriceEl = document.querySelector('.calculator-output__title')
@@ -383,7 +406,7 @@ window.onload = () => {
             importNextQuiz()
             return
         }
-        
+
         const formData = new FormData(quizContainer.querySelector('form'))
         console.log('Имя:', formData.get('quiz-form-name'))
         console.log('Телефон:', formData.get('quiz-form-tel'))
@@ -402,4 +425,19 @@ window.onload = () => {
             lineButton.classList.add('line-button--active')
         }
     })
+
+    // Offer form
+    const offerForm = document.querySelector('.offer-form')
+
+    offerForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const formData = new FormData(offerForm)
+        console.log('Имя:', formData.get('offer-form-name'))
+        console.log('Телефон:', formData.get('offer-form-tel'))
+        console.log('E-mail:', formData.get('offer-form-email'))
+    })
+
+    // Scroll to top
+    const scrollToTopBtn = document.querySelector('.footer-top__up')
+    scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: "smooth", }))
 }
