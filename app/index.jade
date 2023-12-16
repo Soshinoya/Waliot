@@ -11,6 +11,7 @@ html(lang='ru')
         include ./components/atoms/ArrowButton.jade
         include ./components/atoms/MainButton.jade
         include ./components/atoms/LineButton.jade
+        include ./components/atoms/LineButtonTag.jade
         include ./components/atoms/CalculatorButton.jade
         include ./components/atoms/Link.jade
         include ./components/atoms/LinkTwo.jade
@@ -391,6 +392,18 @@ html(lang='ru')
                                     form.calculator-config__form(action="#")
                                         .calculator-config__field-inner
                                             .calculator-config__field
+                                                p.calculator-config__field-title Тип транспортного средства:
+                                                select.calculator-config__field-select(id="calculator-config-select-vehicle-type")
+                                                    option(value='cargo') Грузовой
+                                                    option(value='passenger') Легковой
+                                                    option(value='special-equipment') Спецтехника
+                                            .calculator-config__field
+                                                p.calculator-config__field-title Тип топлива:
+                                                select.calculator-config__field-select(id="calculator-config-select-fuel-type")
+                                                    option(value='diesel') Дизель
+                                                    option(value='gasoline') Бензин
+                                        .calculator-config__field-inner
+                                            .calculator-config__field
                                                 .calculator-config__field-top
                                                     p.calculator-config__field-title Количество автомобилей:
                                                     .calculator-config__field-value(type="number" id="calculator-config-cars-count-value")
@@ -415,30 +428,81 @@ html(lang='ru')
                                                     .calculator-config__field-value(type="number" id="calculator-config-fuel-price-value")
                                                     //- input.calculator-config__field-value(type="number")
                                                 input.calculator-config__field-range(id="calculator-config-fuel-price" type="text")
-                                        .calculator-config__field-inner
-                                            .calculator-config__field
-                                                p.calculator-config__field-title Тип транспортного средства:
-                                                select.calculator-config__field-select(id="calculator-config-select-vehicle-type")
-                                                    option(value='cargo') Грузовой
-                                                    option(value='passenger') Легковой
-                                            .calculator-config__field
-                                                p.calculator-config__field-title Тип топлива:
-                                                select.calculator-config__field-select(id="calculator-config-select-fuel-type")
-                                                    option(value='diesel') Дизель
-                                                    option(value='gasoline') Бензин
-                                                    option(value='gas') Газ
-                                                    option(value='electric') Электричество
-                                                    option(value='hydrogen') Водород
                                 .calculator-output
                                     .calculator-output__content
                                         p.calculator-output__subtitle Экономия за год составит:
-                                        h3.calculator-output__title 242 850 ₽
+                                        h3.calculator-output__title
                                         p.calculator-output__payback
                                             |   Окупаемость: 
-                                            b   34 дня.
+                                            b
                                     .calculator-output__btn
-                                        +calculatorButton('#', 'Хочу так же!')
+                                        +calculatorButton('Хочу так же!', 'submit')
                                         p.calculator-output__hint * Расчёт примерный - точная сумма зависит от индивидуальный параметров
+        section.quiz
+            .container
+                .quiz__wrapper
+                    .row
+                        .quiz__header
+                            h2.quiz__title Узнайте стоимость оборудования
+                            p.quiz__text Для этого ответьте всего на несколько вопросов. Это не займёт много времени
+                    .quiz__holder
+                        .row
+                            template#quiz-first
+                                .quiz__inner
+                                    .quiz-content
+                                        .quiz-content__step Шаг 1 из 4
+                                        h5.quiz-content__title Какие автомобили необходимо оснастить системой ГЛОНАСС?
+                                        .quiz-content__variants
+                                            +lineButtonTag('Легковые', 'option-1')
+                                            +lineButtonTag('Грузовые', 'option-2')
+                                            +lineButtonTag('Спецтехника', 'option-3')
+                                            +lineButtonTag('Все типы ТС', 'option-5')
+                                    +mainButton('', 'Следующий вопрос')
+                            template#quiz-second
+                                .quiz__inner
+                                    .quiz-content
+                                        .quiz-content__step Шаг 2 из 4
+                                        h5.quiz-content__title Какие параметры хотите контролировать?
+                                        .quiz-content__variants
+                                            +lineButtonTag('Местоположение и контроль топлива', 'option-1')
+                                            +lineButtonTag('Местоположение', 'option-2')
+                                            +lineButtonTag('Местоположение и доп. оборудование', 'option-3')
+                                            +lineButtonTag('Всё по максимуму', 'option-4')
+                                    +mainButton('', 'Следующий вопрос')
+                            template#quiz-third
+                                .quiz__inner
+                                    .quiz-content
+                                        .quiz-content__step Шаг 3 из 4
+                                        h5.quiz-content__title Выберите удобный вариант места монтажа?
+                                        .quiz-content__variants
+                                            +lineButtonTag('У нас', 'option-1')
+                                            +lineButtonTag('У вас на базе', 'option-2')
+                                    +mainButton('', 'Следующий вопрос')
+                            template#quiz-fourth
+                                .quiz__inner
+                                    .quiz-content
+                                        .quiz-content__step Шаг 4 из 4
+                                        h5.quiz-content__title В каком городе находятся автомобили?
+                                        .quiz-content__variants
+                                            +lineButtonTag('У нас', 'option-1')
+                                            +lineButtonTag('У вас на базе', 'option-2')
+                                    +mainButton('', 'Следующий вопрос')
+                            template#quiz-form
+                                form.quiz__inner(action="#")
+                                    p.quiz-form__subtitle
+                                        |   Получите персональную скидку 
+                                        span    10%
+                                    h5.quiz-form__title Заполните данные для получения расчёта
+                                    .quiz-form
+                                        .quiz-form__field
+                                            input.quiz-form__field-input(type="text", placeholder="Ваше имя" name="quiz-form-name" required)
+                                            input.quiz-form__field-input(type="number", placeholder="Ваш телефон" name="quiz-form-tel" required)
+                                        .quiz-form__field
+                                            input.quiz-form__field-input(type="email", placeholder="Ваш E-mail" name="quiz-form-email" required)
+                                            +mainButton('', 'Узнать стоимость')
+                                    p.quiz-form__hint 
+                                        |   Нажимая «Узнать стоимость», я даю согласие на 
+                                        +link('#', 'обработку персональных данных')
     //- .container
     //-     .wrapper(style="background-color: #ccc; border-radius: 20px; padding: 50px 0;")
     //-         .row

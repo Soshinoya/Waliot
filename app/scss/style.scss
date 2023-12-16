@@ -685,7 +685,7 @@
     }
 
     &__title {
-        @include font(48px, 120%);
+        @include font(34px, 120%);
     }
 
     &__payback {
@@ -710,6 +710,150 @@
         opacity: .5;
 
         @include font(12px, 150%, $white-color);
+    }
+}
+
+.quiz {
+    padding: 100px 0;
+
+    background: linear-gradient(0deg, rgba(10, 14, 20, 0.60) 0%, rgba(10, 14, 20, 0.60) 100%), url(../images/backgrounds/price.jpg) no-repeat, lightgray -449.478px -416.788px / 147.5% 195.46% no-repeat;
+    background-size: cover;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include font(60px, 120%, $white-color);
+        max-width: 580px;
+    }
+
+    &__text {
+        color: $white-color;
+        max-width: 400px;
+    }
+
+    &__holder {
+        position: relative;
+        height: 423px;
+        padding: 56px 0;
+        background-color: $white-color;
+        border-radius: 50px;
+
+        .row {
+            height: 100%;
+        }
+
+        @include bg-img(null, null, '../images/content/price/system.png', no-repeat, null, right bottom)
+    }
+
+    &__inner {
+        display: flex;
+        max-width: 768px;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    form.quiz__inner {
+        justify-content: unset;
+        gap: 20px;
+    }
+}
+
+.quiz-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__step {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 20px;
+        border-radius: 200px;
+        background-color: $bg2-color;
+
+        @include font(14px, 150%, $txt2-color) {
+            @extend %inter-600;
+        }
+    }
+
+    &__variants {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .line-button {
+        padding: 12px 24px;
+    }
+}
+
+.quiz-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    &__subtitle {
+        padding: 12px 0;
+        color: $txt2-color;
+        font-size: 14px;
+        @extend %inter-600;
+
+        span {
+            color: $main-color;
+        }
+    }
+
+    &__field {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 16px;
+    }
+
+    &__field-input,
+    .main-button {
+        width: 100%;
+    }
+
+    &__field-input {
+        padding: 19px 30px 21px 30px;
+        border-radius: 200px;
+        border: 1px solid $sep-color;
+        background-color: $white-color;
+        outline: none;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &::placeholder {
+            color: $txt2-color;
+        }
+    }
+
+    .main-button {
+        text-align: center;
+    }
+
+    &__hint {
+        font-size: 14px;
+        color: $txt2-color;
     }
 }
 
