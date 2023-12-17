@@ -13,6 +13,7 @@ html(lang='ru')
         include ./components/atoms/LineButton.jade
         include ./components/atoms/LineButtonTag.jade
         include ./components/atoms/CalculatorButton.jade
+        include ./components/atoms/SliderButton.jade
         include ./components/atoms/Link.jade
         include ./components/atoms/LinkTwo.jade
         include ./components/organisms/Header.jade
@@ -74,41 +75,55 @@ html(lang='ru')
         section.feature
             .container
                 .row
-                    .col-lg-3
-                        .feature-item(style='gap: 30px;')
-                            .feature-item__inner
-                                h3.feature-item__title >17 000
-                                p.feature-item__description Автомобилей ежедневно контролируются системой
-                            .feature-item__img
-                                img(src="./images/content/feature/feature_1.png" srcset="./images/content/feature/feature_1.webp 1x, ./images/content/feature/feature_1@2x.webp 2x" alt="")
-                    .col-lg-3
-                        .feature-item(style='gap: 35px; padding-left: 0; padding-right: 0;')
-                            .feature-item__inner
-                                h3.feature-item__title 38
-                                p.feature-item__description Транспортных средств возвращено владельцам
-                            .feature-item__img
-                                img(src="./images/content/feature/feature_2.png" srcset="./images/content/feature/feature_2.webp 1x, ./images/content/feature/feature_2@2x.webp 2x" alt="")
-                    .col-lg-3
-                        .feature-item(style='gap: 35px; padding-right: 0; padding-bottom: 0;')
-                            .feature-item__inner
-                                h3.feature-item__title 2,8 млн тонн
-                                p.feature-item__description Топлива сохранено или возвращено владельцам
-                            .feature-item__img
-                                img(src="./images/content/feature/feature_3.png" srcset="./images/content/feature/feature_3.webp 1x, ./images/content/feature/feature_3@2x.webp 2x" alt="")
-                    .col-lg-3
-                        .feature-item--horizontal__wrapper
-                            .feature-item.feature-item--horizontal.feature-item--accent(style="gap: 46px; padding-bottom: 0; padding-top: 0;")
-                                .feature-item__inner(style="padding-top: 36px;")
-                                    h3.feature-item__title +13
-                                    p.feature-item__description Лет на рынке
-                                .feature-item__img(style="height: 176px;")
-                                    img(src="./images/content/feature/feature_4.png" srcset="./images/content/feature/feature_4.webp 1x, ./images/content/feature/feature_4@2x.webp 2x" alt="")
-                            .feature-item.feature-item--horizontal(style="padding: 0 0 0 36px; align-items: flex-end;")
-                                .feature-item__inner(style="padding: 36px 0 36px 0;")
-                                    h3.feature-item__title 49
-                                    p.feature-item__description Регионов присутствия
-                                .feature-item__img(style="height: 155px;")
-                                    img(src="./images/content/feature/feature_5.png" srcset="./images/content/feature/feature_5.webp 1x, ./images/content/feature/feature_5@2x.webp 2x" alt="")
+                    .feature__wrapper
+                        .feature__slider
+                            .swiper
+                                .swiper-wrapper
+                                    .col-lg-3
+                                        .feature-item(style='gap: 30px;')
+                                            .feature-item__inner
+                                                h3.feature-item__title >17 000
+                                                p.feature-item__description Автомобилей ежедневно контролируются системой
+                                            .feature-item__img(style='padding: 0 36px 36px;')
+                                                img(src="./images/content/feature/feature_1.webp" srcset="./images/content/feature/feature_1.webp 1x, ./images/content/feature/feature_1@2x.webp 2x" alt="")
+                                    .col-lg-3
+                                        //- .feature-item(style='gap: 35px; padding-left: 0; padding-right: 0;')
+                                        .feature-item.align-items-end(style='gap: 35px;')
+                                            .feature-item__inner
+                                                h3.feature-item__title 38
+                                                p.feature-item__description Транспортных средств возвращено владельцам
+                                            .feature-item__img(style='padding-bottom: 36px;')
+                                                img(src="./images/content/feature/feature_2.webp" srcset="./images/content/feature/feature_2.webp 1x, ./images/content/feature/feature_2@2x.webp 2x" alt="")
+                                    .col-lg-3
+                                        //- .feature-item(style='gap: 35px; padding: 0; padding-top: 36px;')
+                                        .feature-item(style='gap: 35px;')
+                                            .feature-item__inner
+                                                h3.feature-item__title 2,8 млн тонн
+                                                p.feature-item__description Топлива сохранено или возвращено владельцам
+                                            .feature-item__img
+                                                img(src="./images/content/feature/feature_3.webp" srcset="./images/content/feature/feature_3.webp 1x, ./images/content/feature/feature_3@2x.webp 2x" alt="")
+                                    .col-lg-3
+                                        .feature-item--horizontal__wrapper
+                                            //- .feature-item.feature-item--horizontal.feature-item--accent(style="gap: 46px; padding-bottom: 0; padding-top: 0;")
+                                            .feature-item.feature-item--horizontal.feature-item--accent(style="gap: 46px;")
+                                                .feature-item__inner(style="padding-right: 0px;")
+                                                    h3.feature-item__title +13
+                                                    p.feature-item__description Лет на рынке
+                                                .feature-item__img(style="height: 176px; padding-right: 36px;")
+                                                    img(src="./images/content/feature/feature_4.webp" srcset="./images/content/feature/feature_4.webp 1x, ./images/content/feature/feature_4@2x.webp 2x" alt="")
+                                            //- .feature-item.feature-item--horizontal(style="padding: 0 0 0 36px; align-items: flex-end;")
+                                            .feature-item.feature-item--horizontal(style="align-items: flex-end;")
+                                                .feature-item__inner(style="padding: 36px 0 36px 36px;")
+                                                    h3.feature-item__title 49
+                                                    p.feature-item__description Регионов присутствия
+                                                .feature-item__img(style="height: 155px;")
+                                                    img.feature-item__img--desktop(src="./images/content/feature/feature_5.webp" srcset="./images/content/feature/feature_5.webp 1x, ./images/content/feature/feature_5@2x.webp 2x" alt="")
+                                                    img.feature-item__img--mob(src="./images/content/feature/feature_5--mob.webp" alt="")
+                        .feature__slider-button__wrapper
+                            +sliderButton('feature', 'prev')
+                            +sliderButton('feature', 'next')
+                        template#feature-slider-slide-template
+                            .swiper-slide
         section.about
             .container
                 .row
@@ -172,12 +187,8 @@ html(lang='ru')
                         .monitoring__header
                             h2.monitoring__title Возможности системы мониторинга
                             .monitoring__slider-button__wrapper
-                                .monitoring__slider-button.monitoring__slider-button--prev
-                                    svg
-                                        use(xlink:href="./images/sprite.svg#angle")
-                                .monitoring__slider-button.monitoring__slider-button--next
-                                    svg
-                                        use(xlink:href="./images/sprite.svg#angle")
+                                +sliderButton('monitoring', 'prev')
+                                +sliderButton('monitoring', 'next')
                         .monitoring__slider
                             .swiper
                                 .swiper-wrapper
@@ -446,12 +457,8 @@ html(lang='ru')
                         .client__header
                             h2.client__title Клиенты и показатели
                             .client__slider-button__wrapper
-                                .client__slider-button.client__slider-button--prev
-                                    svg
-                                        use(xlink:href="./images/sprite.svg#angle")
-                                .client__slider-button.client__slider-button--next
-                                    svg
-                                        use(xlink:href="./images/sprite.svg#angle")
+                                +sliderButton('client', 'prev')
+                                +sliderButton('client', 'next')
                         .client__slider
                             .swiper
                                 .swiper-wrapper

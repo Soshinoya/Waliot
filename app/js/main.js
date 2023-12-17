@@ -440,4 +440,69 @@ window.onload = () => {
     // Scroll to top
     const scrollToTopBtn = document.querySelector('.footer-top__up')
     scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: "smooth", }))
+
+    // Adaptive
+    const checkDocumentWidth = () => {
+        if (window.matchMedia('(max-width: 1200px)').matches) {
+            // Feature slider
+            const featureSliderContainer = document.querySelector('.feature__slider .swiper-wrapper')
+            const featureSliderSlides = document.querySelectorAll('.feature__slider .col-lg-3')
+            const featureTemplate = document.getElementById('feature-slider-slide-template')
+
+            featureSliderSlides.forEach(slide => {
+                const cloneSlides = []
+                slide.querySelectorAll('.feature-item').forEach(el => cloneSlides.push(el.cloneNode(true)))
+                slide.remove()
+
+                const slides = []
+
+                cloneSlides.forEach(cloneSlide => {
+                    const swiperSlide = document.importNode(featureTemplate.content, true).querySelector('.swiper-slide')
+                    swiperSlide.insertAdjacentHTML('afterBegin', cloneSlide.outerHTML)
+                    slides.push(swiperSlide)
+                })
+
+                slides.forEach(el => featureSliderContainer.append(el))
+            })
+
+            new Swiper('.feature__slider > .swiper', {
+                spaceBetween: 16,
+                // slidesPerView: 1,
+                // slidesPerGroup: 1,
+                autoplay: { delay: 3000 },
+                navigation: {
+                    nextEl: '.feature__slider-button--next',
+                    prevEl: '.feature__slider-button--prev'
+                },
+                breakpoints: {
+                    // when window width is >= 480px
+                    480: {
+                        slidesPerView: 'auto',
+                    },
+                    // when window width is >= 768px
+                    768: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2
+                    }
+                }
+            })
+
+        }
+        
+        if (window.matchMedia('(max-width: 991px)').matches) {
+            $('.promotion__content-info').after($('.promotion__img'))
+        }
+        
+        if (window.matchMedia('(max-width: 768px)').matches && window.matchMedia('(min-width: 480px)').matches) {
+            // Выход слайдера 'Feature' за пределы контейнера
+            const featureContainer = document.querySelector('.feature > .container')
+            const featureSliderElem = document.querySelector('.feature__slider')
+    
+            const setFeatureSliderOffset = () => featureSliderElem.style.marginRight = `-${featureContainer.getBoundingClientRect().left + 20}px`
+
+            setFeatureSliderOffset()
+        }
+    }
+    checkDocumentWidth()
+    window.onresize = checkDocumentWidth
 }

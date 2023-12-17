@@ -344,6 +344,28 @@ h5 {
     }
 }
 
+.slider-button {
+    padding: 10px;
+    display: flex;
+    border: 1px solid $sep-color;
+    border-radius: 500px;
+    background-color: $white-color;
+    cursor: pointer;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    &--prev svg {
+        transform: rotate(90deg);
+    }
+
+    &--next svg {
+        transform: rotate(-90deg);
+    }
+}
+
 .modals {
     z-index: 1;
 }
@@ -553,7 +575,7 @@ h5 {
     background-color: $bg-color;
     transition: transform .3s $transitionTimingFunc;
     height: calc(100dvh - 76px);
-    z-index: 1;
+    z-index: 2;
     overflow-y: auto;
 
     &__holder,
