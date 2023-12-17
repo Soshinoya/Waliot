@@ -1,4 +1,7 @@
 window.onload = () => {
+    // Slider config
+    const globalAutoPlaySliderConfig = { delay: 3000 }
+
     // Header search
     const headerSearch = document.querySelector('.header .search')
     const headerSearchWrapper = headerSearch.closest('.header__btns')
@@ -443,6 +446,14 @@ window.onload = () => {
 
     // Adaptive
     const checkDocumentWidth = () => {
+        if (window.matchMedia('(max-width: 1400px)').matches) {
+            // Control section
+            const controlImagesTop = document.querySelector('.control__images-top')
+            const controlImagesBottom = document.querySelectorAll('.control__images-bottom .control__img')
+
+            controlImagesBottom.forEach(img => controlImagesTop.insertAdjacentElement('beforeEnd', img))
+        }
+
         if (window.matchMedia('(max-width: 1200px)').matches) {
             // Feature slider
             const featureSliderContainer = document.querySelector('.feature__slider .swiper-wrapper')
@@ -467,37 +478,74 @@ window.onload = () => {
 
             new Swiper('.feature__slider > .swiper', {
                 spaceBetween: 16,
-                // slidesPerView: 1,
-                // slidesPerGroup: 1,
-                autoplay: { delay: 3000 },
+                autoplay: globalAutoPlaySliderConfig,
                 navigation: {
                     nextEl: '.feature__slider-button--next',
                     prevEl: '.feature__slider-button--prev'
                 },
                 breakpoints: {
-                    // when window width is >= 480px
                     480: {
                         slidesPerView: 'auto',
                     },
-                    // when window width is >= 768px
                     768: {
                         slidesPerView: 2,
                         slidesPerGroup: 2
                     }
                 }
-            })
 
+            })
         }
-        
+
         if (window.matchMedia('(max-width: 991px)').matches) {
             $('.promotion__content-info').after($('.promotion__img'))
+
+            // Control section
+            const controlBtn = document.querySelector('.control__inner .main-button')
+            const controlImages = document.querySelector('.control__images-top')
+
+            controlBtn.insertAdjacentElement('beforebegin', controlImages)
+            document.querySelector('.control .col-lg-7')?.remove()
         }
-        
+
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            // 'Control' slider
+            const controlSlides = document.querySelectorAll('.control__img')
+            const controlSliderContainer = document.querySelector('.control__slider .swiper-wrapper')
+            const controlPreviousContainer = document.querySelector('.control__holder .control__images-top')
+
+            controlSlides.forEach(controlSlide => {
+                const swiperSlide = document.createElement('div')
+                swiperSlide.classList.add('swiper-slide')
+                swiperSlide.insertAdjacentHTML('afterBegin', controlSlide.outerHTML)
+                controlSliderContainer.insertAdjacentElement('beforeEnd', swiperSlide)
+            })
+
+            controlPreviousContainer.remove()
+
+            new Swiper('.control__slider > .swiper', {
+                spaceBetween: 16,
+                slidesPerView: 'auto',
+                autoplay: globalAutoPlaySliderConfig,
+                // breakpoints: {
+                //     // when window width is >= 480px
+                //     480: {
+                //         slidesPerView: 'auto',
+                //     },
+                //     // when window width is >= 768px
+                //     768: {
+                //         slidesPerView: 2,
+                //         slidesPerGroup: 2
+                //     }
+                // }
+
+            })
+        }
+
         if (window.matchMedia('(max-width: 768px)').matches && window.matchMedia('(min-width: 480px)').matches) {
             // Выход слайдера 'Feature' за пределы контейнера
             const featureContainer = document.querySelector('.feature > .container')
             const featureSliderElem = document.querySelector('.feature__slider')
-    
+
             const setFeatureSliderOffset = () => featureSliderElem.style.marginRight = `-${featureContainer.getBoundingClientRect().left + 20}px`
 
             setFeatureSliderOffset()

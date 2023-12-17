@@ -8,6 +8,7 @@ html(lang='ru')
         link(rel="stylesheet" href="css/style.min.css")
     body
         include ./components/molecules/VideoButton.jade
+        include ./components/atoms/Tooltip.jade
         include ./components/atoms/ArrowButton.jade
         include ./components/atoms/MainButton.jade
         include ./components/atoms/LineButton.jade
@@ -87,7 +88,6 @@ html(lang='ru')
                                             .feature-item__img(style='padding: 0 36px 36px;')
                                                 img(src="./images/content/feature/feature_1.webp" srcset="./images/content/feature/feature_1.webp 1x, ./images/content/feature/feature_1@2x.webp 2x" alt="")
                                     .col-lg-3
-                                        //- .feature-item(style='gap: 35px; padding-left: 0; padding-right: 0;')
                                         .feature-item.align-items-end(style='gap: 35px;')
                                             .feature-item__inner
                                                 h3.feature-item__title 38
@@ -95,7 +95,6 @@ html(lang='ru')
                                             .feature-item__img(style='padding-bottom: 36px;')
                                                 img(src="./images/content/feature/feature_2.webp" srcset="./images/content/feature/feature_2.webp 1x, ./images/content/feature/feature_2@2x.webp 2x" alt="")
                                     .col-lg-3
-                                        //- .feature-item(style='gap: 35px; padding: 0; padding-top: 36px;')
                                         .feature-item(style='gap: 35px;')
                                             .feature-item__inner
                                                 h3.feature-item__title 2,8 млн тонн
@@ -104,14 +103,12 @@ html(lang='ru')
                                                 img(src="./images/content/feature/feature_3.webp" srcset="./images/content/feature/feature_3.webp 1x, ./images/content/feature/feature_3@2x.webp 2x" alt="")
                                     .col-lg-3
                                         .feature-item--horizontal__wrapper
-                                            //- .feature-item.feature-item--horizontal.feature-item--accent(style="gap: 46px; padding-bottom: 0; padding-top: 0;")
                                             .feature-item.feature-item--horizontal.feature-item--accent(style="gap: 46px;")
                                                 .feature-item__inner(style="padding-right: 0px;")
                                                     h3.feature-item__title +13
                                                     p.feature-item__description Лет на рынке
                                                 .feature-item__img(style="height: 176px; padding-right: 36px;")
                                                     img(src="./images/content/feature/feature_4.webp" srcset="./images/content/feature/feature_4.webp 1x, ./images/content/feature/feature_4@2x.webp 2x" alt="")
-                                            //- .feature-item.feature-item--horizontal(style="padding: 0 0 0 36px; align-items: flex-end;")
                                             .feature-item.feature-item--horizontal(style="align-items: flex-end;")
                                                 .feature-item__inner(style="padding: 36px 0 36px 36px;")
                                                     h3.feature-item__title 49
@@ -143,14 +140,15 @@ html(lang='ru')
                             .about-item
                                 .about-item__img.about-item__img--dark
                                     img(src="./images/content/about/about_3.webp" srcset="./images/content/about/about_3.webp 1x, ./images/content/about/about_3@2x.webp 2x" alt="")
-                                    .about-item__link(style="bottom: 30px;")
-                                        +videoButton('#', 'Посмотреть видео', 'Первая мониторинговая компания')
+                                .about-item__link(style="bottom: 30px;")
+                                    +videoButton('#', 'Посмотреть видео', 'Первая мониторинговая компания')
                     .col-lg-3
-                        .about-item
+                        .about-item.align-items-end(style="background-color: #edf0f5;")
                             .about-item__img
-                                img(src="./images/content/about/about_4.webp" srcset="./images/content/about/about_4.webp 1x, ./images/content/about/about_4@2x.webp 2x" alt="")
-                                .about-item__link(style="top: 30px;")
-                                    +videoButton('#', 'Посмотреть видео', 'Интерфейс пользователя', 'dark')
+                                img.about-item__img--desktop(src="./images/content/about/about_4--desktop.webp" srcset="./images/content/about/about_4--desktop.webp 1x, ./images/content/about/about_4--desktop@2x.webp 2x" alt="")
+                                img.about-item__img--mob(src="./images/content/about/about_4--mob.webp" alt="")
+                            .about-item__link(style="top: 30px;")
+                                +videoButton('#', 'Посмотреть видео', 'Интерфейс пользователя', 'dark')
         section.control
             .container
                 .control__holder
@@ -165,21 +163,30 @@ html(lang='ru')
                                         |   Многофункциональное оборудование от одного из ведущих российских производителей оборудования автомониторинга всех видов транспорта, который по праву заслужил высокий уровень доверия со стороны покупателей.
                                         br
                                         |   Мы предлагаем не просто купить и установить спутниковый мониторинг ГЛОНАСС\GPS, а комплексное решение, контроль транспорта, который включает в себя линейку различного телематического оборудования, системы транспортной аналитики, тахографы и карты водителя по выгодной цене.
+                                .control__slider
+                                    .swiper
+                                        .swiper-wrapper
                                 +mainButton('#', 'Подобрать оборудование')
                         .col-lg-7
                             .control__images
                                 .control__images-top
-                                    .control__img
-                                        img(src="./images/content/control/control_1.png" alt="")
-                                    .control__img
-                                        img(src="./images/content/control/control_2.png" alt="")
-                                    .control__img
-                                        img(src="./images/content/control/control_3.png" alt="")
+                                    .control__img.control__img--first
+                                        +tooltip('Видео-камера', 'right')
+                                    .control__img.control__img--second
+                                        +tooltip('Датчик уровня топлива', 'top')
+                                    .control__img.control__img--third
+                                        +tooltip('Датчик температуры', 'right')
                                 .control__images-bottom
-                                    .control__img
-                                        img(src="./images/content/control/control_4.png" alt="")
-                                    .control__img
-                                        img(src="./images/content/control/control_5.png" alt="")
+                                    .control__img.control__img--fourth
+                                        .control__img--fourth-tooltip
+                                            +tooltip('ГЛОНАСС / GPS терминал', 'left')
+                                        .control__img--fourth-tooltip
+                                            +tooltip('ГЛОНАСС / GPS терминал', 'top')
+                                    .control__img.control__img--fifth
+                                        .control__img--fifth-tooltip
+                                            +tooltip('Датчики давления в шинах', 'left')
+                                        .control__img--fifth-tooltip
+                                            +tooltip('Датчики давления в шинах', 'top')
         section.monitoring
             .container
                 .row
@@ -224,6 +231,9 @@ html(lang='ru')
                                         .monitoring__slider-slide
                                             h5.monitoring__slider-slide__title Оповещение об опасной езде
                                             p.monitoring__slider-slide__text Разработанный нами анализ качества и стиля вождения способен фиксировать следующие нарушения: резкие ускорения и торможения, резкое маневрирование, превышение скоростного режима и движение в тёмное время суток.
+                        .monitoring__slider-button__wrapper.monitoring__slider-button__wrapper--md
+                            +sliderButton('monitoring', 'prev')
+                            +sliderButton('monitoring', 'next')
         section.icons
             .container
                 .icons__holder

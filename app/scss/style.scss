@@ -158,7 +158,9 @@
 
     &__wrapper {
         display: flex;
+        height: 100%;
         flex-direction: column;
+        justify-content: space-between;
         gap: 16px;
 
         .about-item {
@@ -178,8 +180,6 @@
 .about-item {
     position: relative;
     display: flex;
-    align-items: flex-end;
-    background-color: $bg2-color;
     height: 490px;
 
     &,
@@ -194,8 +194,6 @@
     }
 
     &__img {
-        margin-top: auto;
-
         &--dark::before {
             content: '';
             top: 0;
@@ -241,10 +239,6 @@
     }
 
     &__images {
-        // display: grid;
-        // grid-template-columns: repeat(3, 1fr);
-        // grid-template-rows: repeat(2, 1fr);
-        // grid-template-columns: auto auto auto;
         display: flex;
         flex-direction: column;
     }
@@ -259,11 +253,66 @@
     }
 
     &__img {
+        position: relative;
         text-align: center;
+        overflow: hidden;
+        background-repeat: no-repeat;
 
-        img {
+        & {
             border-radius: 40px;
-            @include image-default();
+        }
+
+        &--first {
+            width: 245px;
+            height: 208px;
+            background-image: url(../images/content/control/control_1.png);
+            background-position: 0 70%;
+
+            .tooltip {
+                position: absolute;
+                top: 67px;
+                left: 29px;
+            }
+        }
+
+        &--second {
+            width: 245px;
+            height: 208px;
+            background-image: url(../images/content/control/control_2.png);
+            background-position: 85% 70%;
+
+            .tooltip__wrapper {
+                position: absolute;
+                bottom: 15px;
+                left: 15px;
+            }
+        }
+        
+        &--third {
+            width: 245px;
+            height: 208px;
+            background-image: url(../images/content/control/control_3.png);
+            background-position: 20% 10%;
+
+            .tooltip {
+                position: absolute;
+                bottom: 61px;
+                left: 10px;
+            }
+        }
+
+        &--fourth {
+            width: 376px;
+            height: 208px;
+            background-image: url(../images/content/control/control_4.png);
+            background-position: 0 5%;
+        }
+
+        &--fifth {
+            width: 376px;
+            height: 208px;
+            background-image: url(../images/content/control/control_5.png);
+            background-position: 85% 45%;
         }
     }
 }
@@ -334,7 +383,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    justify-content: center;
     text-align: center;
 
     &__icon svg {
