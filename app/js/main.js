@@ -76,27 +76,13 @@ window.onload = () => {
             nextEl: '.monitoring__slider-button--next',
             prevEl: '.monitoring__slider-button--prev'
         },
-        // breakpoints: {
-        //     // when window width is >= 320px
-        //     320: {
-        //         slidesPerView: 'auto',
-        //     },
-        //     // when window width is >= 480px
-        //     480: {
-        //         slidesPerView: 2,
-        //     },
-        //     // when window width is >= 768px
-        //     768: {
-        //         slidesPerView: 'auto',
-        //     }
-        // }
     })
 
     // Выход слайдера 'Monitoring' за пределы контейнера
     const monitoringContainer = document.querySelector('.monitoring > .container')
     const monitoringSliderElem = document.querySelector('.monitoring__slider')
 
-    const setMonitoringSliderOffset = () => monitoringSliderElem.style.marginRight = `-${monitoringContainer.getBoundingClientRect().left + 76}px`
+    const setMonitoringSliderOffset = () => monitoringSliderElem.style.marginRight = `-${monitoringContainer.getBoundingClientRect().left + (window.matchMedia('(max-width: 480px)').matches ? 20 : 76)}px`
 
     window.addEventListener('resize', setMonitoringSliderOffset)
     setMonitoringSliderOffset()
@@ -109,27 +95,13 @@ window.onload = () => {
             nextEl: '.client__slider-button--next',
             prevEl: '.client__slider-button--prev'
         },
-        // breakpoints: {
-        //     // when window width is >= 320px
-        //     320: {
-        //         slidesPerView: 'auto',
-        //     },
-        //     // when window width is >= 480px
-        //     480: {
-        //         slidesPerView: 2,
-        //     },
-        //     // when window width is >= 768px
-        //     768: {
-        //         slidesPerView: 'auto',
-        //     }
-        // }
     })
 
     // Выход слайдера 'Client' за пределы контейнера
     const clientContainer = document.querySelector('.client > .container')
     const clientSliderElem = document.querySelector('.client__slider')
 
-    const setClientSliderOffset = () => clientSliderElem.style.marginRight = `-${clientContainer.getBoundingClientRect().left + 76}px`
+    const setClientSliderOffset = () => clientSliderElem.style.marginRight = `-${clientContainer.getBoundingClientRect().left + (window.matchMedia('(max-width: 768px)').matches ? 20 : 76)}px`
 
     window.addEventListener('resize', setClientSliderOffset)
     setClientSliderOffset()
@@ -500,14 +472,16 @@ window.onload = () => {
             const industrySliderContainer = document.querySelector('.industry__slider .swiper-wrapper')
             const industryPreviousContainer = document.querySelector('.industry__items')
 
-            industryItems.forEach(industryItem => {
-                const swiperSlide = document.createElement('div')
-                swiperSlide.classList.add('swiper-slide')
-                swiperSlide.insertAdjacentHTML('afterBegin', industryItem.outerHTML)
-                industrySliderContainer.insertAdjacentElement('beforeEnd', swiperSlide)
-            })
+            if (industryPreviousContainer) {
+                industryItems.forEach(industryItem => {
+                    const swiperSlide = document.createElement('div')
+                    swiperSlide.classList.add('swiper-slide')
+                    swiperSlide.insertAdjacentHTML('afterBegin', industryItem.outerHTML)
+                    industrySliderContainer.insertAdjacentElement('beforeEnd', swiperSlide)
+                })
 
-            industryPreviousContainer.remove()
+                industryPreviousContainer.remove()
+            }
 
             new Swiper('.industry__slider > .swiper', {
                 spaceBetween: 16,
@@ -530,8 +504,16 @@ window.onload = () => {
 
             const setIndustrySliderOffset = () => industrySliderElem.style.marginRight = `-${industryContainer.getBoundingClientRect().left + 76}px`
 
-            window.addEventListener('resize', setIndustrySliderOffset)
             setIndustrySliderOffset()
+
+            // Footer accordion
+            const footerBodyItems = document.querySelectorAll('.footer-body__item')
+            document.addEventListener('click', e => {
+                const clickedItem = e.target.closest('.footer-body__item')
+                footerBodyItems.forEach(el => clickedItem == el ? 0 : el.classList.remove('footer-body__item--active'))
+                if (!clickedItem) return
+                clickedItem.classList.contains('footer-body__item--active') ? clickedItem.classList.remove('footer-body__item--active') : clickedItem.classList.add('footer-body__item--active')
+            })
         }
 
         if (window.matchMedia('(max-width: 991px)').matches) {
@@ -565,6 +547,60 @@ window.onload = () => {
                 slidesPerView: 'auto',
                 autoplay: globalAutoPlaySliderConfig,
             })
+        }
+
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            // Awards - перемещение кнопки
+            const awardsContainer = document.querySelector('.awards__holder')
+            const awardsBtn = document.querySelector('.awards__header .line-button')
+
+            if (awardsBtn) {
+                const row = document.createElement('div')
+                row.classList.add('row')
+                row.append(awardsBtn)
+                awardsContainer.append(row)
+            }
+
+            // Case - перемещение кнопки
+            const caseContainer = document.querySelector('.case__wrapper')
+            const caseBtn = document.querySelector('.case__header .line-button')
+
+            if (caseBtn) {
+                const row = document.createElement('div')
+                row.classList.add('row')
+                row.append(caseBtn)
+                caseContainer.append(row)
+            }
+
+            // Media - перемещение кнопки
+            const mediaContainer = document.querySelector('.media__wrapper')
+            const mediaBtn = document.querySelector('.media__header .line-button')
+
+            if (mediaBtn) {
+                const row = document.createElement('div')
+                row.classList.add('row')
+                row.append(mediaBtn)
+                mediaContainer.append(row)
+            }
+
+            // Review - перемещение кнопки
+            const reviewContainer = document.querySelector('.review__wrapper')
+            const reviewBtn = document.querySelector('.review__header .line-button')
+
+            if (reviewBtn) {
+                const row = document.createElement('div')
+                row.classList.add('row')
+                row.append(reviewBtn)
+                reviewContainer.append(row)
+            }
+
+            // Step section
+            const stepItemContent = document.querySelector('.step-item__content')
+            const stepItemText = document.querySelector('.step-item__text')
+            const stepItemLink = document.querySelector('.step-item .link-two')
+
+            stepItemText && stepItemContent.append(stepItemText)
+            stepItemLink && stepItemContent.append(stepItemLink)
         }
 
         if (window.matchMedia('(max-width: 768px)').matches && window.matchMedia('(min-width: 480px)').matches) {

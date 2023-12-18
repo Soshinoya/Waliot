@@ -83,9 +83,6 @@ function scripts() {
     'node_modules/swiper/swiper-bundle.js',
     'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
     'node_modules/select2/dist/js/select2.full.min.js',
-    // 'app/utils/copyToClipboard.js',
-    // 'app/utils/isVisible.js',
-    // 'app/utils/autoScroll.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))

@@ -287,7 +287,7 @@
                 left: 15px;
             }
         }
-        
+
         &--third {
             width: 245px;
             height: 208px;
@@ -400,7 +400,7 @@
         gap: 50px;
     }
 
-    &__items  {
+    &__items {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
@@ -769,10 +769,20 @@
 }
 
 .quiz {
+    position: relative;
     padding: 100px 0;
 
-    background: linear-gradient(0deg, rgba(10, 14, 20, 0.60) 0%, rgba(10, 14, 20, 0.60) 100%), url(../images/backgrounds/price.jpg) no-repeat, lightgray -449.478px -416.788px / 147.5% 195.46% no-repeat;
-    background-size: cover;
+    &__bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background: linear-gradient(0deg, rgba(10, 14, 20, 0.60) 0%, rgba(10, 14, 20, 0.60) 100%), url(../images/backgrounds/price.jpg) no-repeat, lightgray -449.478px -416.788px / 147.5% 195.46% no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
 
     &__wrapper {
         display: flex;
@@ -938,6 +948,10 @@
             display: flex;
             align-items: center;
             gap: 20px;
+
+            &--lg {
+                justify-content: center;
+            }
         }
     }
 
@@ -1015,6 +1029,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
     }
 }
 
@@ -1138,6 +1158,12 @@
         align-items: center;
         justify-content: space-between;
     }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
 }
 
 .review-item {
@@ -1204,7 +1230,8 @@
     }
 
     &__items {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
         gap: 16px;
     }
 }

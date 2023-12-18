@@ -520,6 +520,9 @@ html(lang='ru')
                                                 p.client__slider-slide__text Снизился расход топлива по сравнению с периодом, когда система мониоринга транспорта Waliot не была установлена на нашх автомобилях
                         .client__btn
                             +mainButton('#', 'Попробовать демо версию')
+                        .client__slider-button__wrapper.client__slider-button__wrapper--lg
+                            +sliderButton('client', 'prev')
+                            +sliderButton('client', 'next')
         section.awards
             .container
                 .awards__holder
@@ -551,59 +554,57 @@ html(lang='ru')
                         .case__header
                             h2.case__title Кейсы
                             +lineButton('#', 'Смотреть все кейсы')
-                    .row
-                        .col-lg-4
-                            .case-item
-                                a.case-item__img(href="#")
-                                    img(src="./images/content/case/truck.jpg" alt="truck")
-                                h5.case-item__title
-                                    a(href="#") Таинственная пропажа навигационного оборудования
-                                .case-item__stats
-                                    .case-item__stat
-                                        .case-item__stat-icon
-                                            svg
-                                                use(xlink:href="./images/sprite.svg#clock")
-                                        p.case-item__stat-text 7 минут назад
-                                    .case-item__stat
-                                        .case-item__stat-icon
-                                            svg
-                                                use(xlink:href="./images/sprite.svg#eye")
-                                        p.case-item__stat-text 4141
-                        .col-lg-4
-                            .case-item
-                                a.case-item__img(href="#")
-                                    img(src="./images/content/case/truck.jpg" alt="truck")
-                                h5.case-item__title
-                                    a(href="#") Механик из Ада
-                                .case-item__stats
-                                    .case-item__stat
-                                        .case-item__stat-icon
-                                            svg
-                                                use(xlink:href="./images/sprite.svg#clock")
-                                        p.case-item__stat-text 7 минут назад
-                                    .case-item__stat
-                                        .case-item__stat-icon
-                                            svg
-                                                use(xlink:href="./images/sprite.svg#eye")
-                                        p.case-item__stat-text 4141
-                        .col-lg-4
-                            .case-item
-                                a.case-item__img(href="#")
-                                    img(src="./images/content/case/truck.jpg" alt="truck")
-                                h5.case-item__title
-                                    a(href="#") Змеиное логово механика или как мы почти попали
-                                .case-item__stats
-                                    .case-item__stat
-                                        .case-item__stat-icon
-                                            svg
-                                                use(xlink:href="./images/sprite.svg#clock")
-                                        p.case-item__stat-text 7 минут назад
-                                    .case-item__stat
-                                        .case-item__stat-icon
-                                            svg
-                                                use(xlink:href="./images/sprite.svg#eye")
-                                        p.case-item__stat-text 4141
+                    .case__items
+                        .case-item
+                            a.case-item__img(href="#")
+                                img(src="./images/content/case/truck.jpg" alt="truck")
+                            h5.case-item__title
+                                a(href="#") Таинственная пропажа навигационного оборудования
+                            .case-item__stats
+                                .case-item__stat
+                                    .case-item__stat-icon
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#clock")
+                                    p.case-item__stat-text 7 минут назад
+                                .case-item__stat
+                                    .case-item__stat-icon
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#eye")
+                                    p.case-item__stat-text 4141
+                        .case-item
+                            a.case-item__img(href="#")
+                                img(src="./images/content/case/truck.jpg" alt="truck")
+                            h5.case-item__title
+                                a(href="#") Механик из Ада
+                            .case-item__stats
+                                .case-item__stat
+                                    .case-item__stat-icon
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#clock")
+                                    p.case-item__stat-text 7 минут назад
+                                .case-item__stat
+                                    .case-item__stat-icon
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#eye")
+                                    p.case-item__stat-text 4141
+                        .case-item
+                            a.case-item__img(href="#")
+                                img(src="./images/content/case/truck.jpg" alt="truck")
+                            h5.case-item__title
+                                a(href="#") Змеиное логово механика или как мы почти попали
+                            .case-item__stats
+                                .case-item__stat
+                                    .case-item__stat-icon
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#clock")
+                                    p.case-item__stat-text 7 минут назад
+                                .case-item__stat
+                                    .case-item__stat-icon
+                                        svg
+                                            use(xlink:href="./images/sprite.svg#eye")
+                                    p.case-item__stat-text 4141
         section.quiz
+            .quiz__bg
             .container
                 .quiz__wrapper
                     .row
@@ -700,7 +701,7 @@ html(lang='ru')
                             h2.review__title Отзывы
                             +lineButton('#', 'Читать все отзывы')
                     .row
-                        .col-lg-4
+                        .review__items
                             .review-item
                                 .review-item__top
                                     b.review-item__author Дарья Д.
@@ -725,7 +726,6 @@ html(lang='ru')
                                     b.review-item__stars-count 5
                                 .review-item__body
                                     p.review-item__text С компанией работаем не один год- профессионалы, знатоки своего дела и просто отзывчивые люди. Программа удобная, интерфейс понятный, формирование отчетов по необходимым нам критериям. Быстро и без накладок. В общем сервисом и довольны, а также работой техподдерки при возникших вопросах.
-                        .col-lg-4
                             .review-item
                                 .review-item__top
                                     b.review-item__author Лёша Николаев
@@ -750,7 +750,6 @@ html(lang='ru')
                                     b.review-item__stars-count 5
                                 .review-item__body
                                     p.review-item__text Программное обеспечение Waliot приятно порадовало. Оперативно можно получить электронную отчетность, удобно и все четко. Отвечают живые люди, когда звонишь, причем быстро и по делу. Доволен.
-                        .col-lg-4
                             .review-item
                                 .review-item__top
                                     b.review-item__author Дарья Д.
@@ -789,26 +788,31 @@ html(lang='ru')
                                     .step-item__sep
                                 p.step-item__text Вы оставляете заявку на сайте или по телефону
                                 +linkTwo('#', 'Оставить заявку')
+                                .step-item__content
                             .step-item
                                 .step-item__top
                                     p.step-item__num 02
                                     .step-item__sep
                                 p.step-item__text Мы подбираем решение и формируем коммерческое предложение
+                                .step-item__content
                             .step-item
                                 .step-item__top
                                     p.step-item__num 03
                                     .step-item__sep
                                 p.step-item__text Мы устанавливаем и настраиваем оборудование на вашей территории или нашей базе
+                                .step-item__content
                             .step-item
                                 .step-item__top
                                     p.step-item__num 04
                                     .step-item__sep
                                 p.step-item__text Вы заходите в кабинет на сайте или в приложении и осуществляете контроль транспорта
+                                .step-item__content
                             .step-item
                                 .step-item__top
                                     p.step-item__num 05
                                     .step-item__sep
                                 p.step-item__text Мы обучаем работе с приложением и осуществляем поддержку решения на всём периоде работы
+                                .step-item__content
         section.offer
             .container
                 .offer__wrapper

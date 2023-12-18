@@ -554,6 +554,7 @@ h5 {
         gap: 10px;
 
         svg {
+            fill: $main-color;
             width: 16px;
             height: 16px;
         }
@@ -752,6 +753,7 @@ h5 {
             border-radius: 500px;
 
             svg {
+                fill: $main-color;
                 width: 16px;
                 height: 16px;
             }
@@ -819,6 +821,7 @@ h5 {
         cursor: pointer;
 
         svg {
+            fill: $black-color;
             width: 16px;
             height: 16px;
         }

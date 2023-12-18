@@ -3,14 +3,17 @@ mixin footer()
         .container
             .footer__wrapper
                 .footer-top
-                    .col-lg-3
+                    .col-xxl-3
                         .footer-top__logo
                             svg
                                 use(xlink:href="./images/sprite.svg#logo")
-                    .col-lg-6
+                    .col-xxl-6
                         .footer-top__connect
                             a.footer-top__tel(href="tel:+78002509099") 8 800 250-90-99
                             .footer-top__icons
+                                a.footer-top__icon(href="#")
+                                    svg
+                                        use(xlink:href="./images/sprite.svg#phone")
                                 a.footer-top__icon(href="#")
                                     svg
                                         use(xlink:href="./images/sprite.svg#telegram_1")
@@ -18,16 +21,19 @@ mixin footer()
                                     svg
                                         use(xlink:href="./images/sprite.svg#whatsapp")
 
-                    .col-lg-3
+                    .col-xxl-3
                         .footer-top__btns
                             +lineIconButton('#', 'Личный кабинет', '#user')
                             .footer-top__up
                                 svg
                                     use(xlink:href="./images/sprite.svg#angle")
                 .footer-body
-                    .col-lg-3
+                    .col-xl-3
                         .footer-body__item
-                            h5.footer-body__item-title Продукт
+                            h5.footer-body__item-title
+                                p Продукт
+                                svg
+                                    use(xlink:href="./images/sprite.svg#angle")
                             ul.footer-body__list
                                 li.footer-body__link
                                     +link('#', 'Контроль местоположения')
@@ -49,9 +55,12 @@ mixin footer()
                                     +link('#', 'Контроль местоположения')
                                 li.footer-body__link
                                     +link('#', 'Контроль местоположения')
-                    .col-lg-3
+                    .col-xl-3
                         .footer-body__item
-                            h5.footer-body__item-title Решения
+                            h5.footer-body__item-title
+                                p Решения
+                                svg
+                                    use(xlink:href="./images/sprite.svg#angle")
                             ul.footer-body__list
                                 li.footer-body__link
                                     +link('#', 'Контроль местоположения')
@@ -73,9 +82,12 @@ mixin footer()
                                     +link('#', 'Контроль местоположения')
                                 li.footer-body__link
                                     +link('#', 'Контроль местоположения')
-                    .col-lg-3
+                    .col-xl-3
                         .footer-body__item
-                            h5.footer-body__item-title Технологии
+                            h5.footer-body__item-title
+                                p Технологии
+                                svg
+                                    use(xlink:href="./images/sprite.svg#angle")
                             ul.footer-body__list
                                 li.footer-body__link
                                     +link('#', 'Контроль местоположения')
@@ -97,9 +109,12 @@ mixin footer()
                                     +link('#', 'Контроль местоположения')
                                 li.footer-body__link
                                     +link('#', 'Контроль местоположения')
-                    .col-lg-3
+                    .col-xl-3
                         .footer-body__item
-                            h5.footer-body__item-title Компния
+                            h5.footer-body__item-title
+                                p Компния
+                                svg
+                                    use(xlink:href="./images/sprite.svg#angle")
                             ul.footer-body__list
                                 li.footer-body__link
                                     +link('#', 'Контроль местоположения')
