@@ -360,14 +360,19 @@ h5 {
 
     transition: border .2s $transitionTimingFunc, width .3s $transitionTimingFunc;
 
-    &__icon svg {
+    &__icon {
         width: 16px;
-        height: 16px;
+        height: 20px;
 
-        use {
-            fill: $black-color;
-
-            transition: fill .2s $transitionTimingFunc;
+        svg {
+            width: 16px;
+            height: 16px;
+    
+            use {
+                fill: $black-color;
+    
+                transition: fill .2s $transitionTimingFunc;
+            }
         }
     }
 
@@ -863,8 +868,19 @@ h5 {
         gap: 10px;
     }
 
-    &__made-logo svg {
-        width: 52px;
-        height: 11px;
+    &__made-logo {
+        svg {
+            fill: #7A7D80;
+            width: 52px;
+            height: 11px;
+            
+            transition: fill .3s $transitionTimingFunc;
+        }
+
+        @include hover() {
+            svg {
+                fill: $main-color;
+            }
+        }
     }
 }

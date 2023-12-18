@@ -405,6 +405,14 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
     }
+
+    &__slider-button__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 14px;
+    }
 }
 
 .industry-item {

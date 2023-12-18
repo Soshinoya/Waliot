@@ -513,6 +513,10 @@ window.onload = () => {
                 spaceBetween: 16,
                 slidesPerView: 'auto',
                 autoplay: globalAutoPlaySliderConfig,
+                navigation: {
+                    nextEl: '.industry__slider-button--next',
+                    prevEl: '.industry__slider-button--prev'
+                },
                 breakpoints: {
                     991: {
                         slidesPerView: 2
