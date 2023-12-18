@@ -266,8 +266,9 @@ window.onload = () => {
             $('#calculator-config-fuel-price-value').text(fuelPrice)
         } else {
             $('#calculator-config-cars-count').ionRangeSlider({
-                min: 1,
-                max: 100,
+                min: 0,
+                max: 1000,
+                step: 5,
                 from: carsCount,
                 onStart: data => $('#calculator-config-cars-count-value').text(data.from),
                 onChange(data) {
@@ -278,9 +279,9 @@ window.onload = () => {
             })
 
             $('#calculator-config-kilometrage').ionRangeSlider({
+                min: 0,
+                max: 20000,
                 step: 100,
-                min: 1000,
-                max: 30000,
                 from: kilometrageAverage,
                 onStart: data => $('#calculator-config-kilometrage-value').text(data.from),
                 onChange(data) {
@@ -292,7 +293,7 @@ window.onload = () => {
 
             $('#calculator-config-fuel-consumption').ionRangeSlider({
                 min: 1,
-                max: 90,
+                max: 100,
                 from: fuelConsumptionAverage,
                 onStart: data => $('#calculator-config-fuel-consumption-value').text(data.from),
                 onChange(data) {
@@ -303,8 +304,8 @@ window.onload = () => {
             })
 
             $('#calculator-config-fuel-price').ionRangeSlider({
-                min: 1,
-                max: 120,
+                min: 40,
+                max: 80,
                 from: fuelPrice,
                 onStart: data => $('#calculator-config-fuel-price-value').text(data.from),
                 onChange(data) {
@@ -492,8 +493,41 @@ window.onload = () => {
                         slidesPerGroup: 2
                     }
                 }
-
             })
+
+            // Industry slider
+            const industryItems = document.querySelectorAll('.industry-item')
+            const industrySliderContainer = document.querySelector('.industry__slider .swiper-wrapper')
+            const industryPreviousContainer = document.querySelector('.industry__items')
+
+            industryItems.forEach(industryItem => {
+                const swiperSlide = document.createElement('div')
+                swiperSlide.classList.add('swiper-slide')
+                swiperSlide.insertAdjacentHTML('afterBegin', industryItem.outerHTML)
+                industrySliderContainer.insertAdjacentElement('beforeEnd', swiperSlide)
+            })
+
+            industryPreviousContainer.remove()
+
+            new Swiper('.industry__slider > .swiper', {
+                spaceBetween: 16,
+                slidesPerView: 'auto',
+                autoplay: globalAutoPlaySliderConfig,
+                breakpoints: {
+                    991: {
+                        slidesPerView: 2
+                    }
+                }
+            })
+
+            // Выход слайдера 'Industry' за пределы контейнера
+            const industryContainer = document.querySelector('.industry > .container')
+            const industrySliderElem = document.querySelector('.industry__slider')
+
+            const setIndustrySliderOffset = () => industrySliderElem.style.marginRight = `-${industryContainer.getBoundingClientRect().left + 76}px`
+
+            window.addEventListener('resize', setIndustrySliderOffset)
+            setIndustrySliderOffset()
         }
 
         if (window.matchMedia('(max-width: 991px)').matches) {
@@ -526,18 +560,6 @@ window.onload = () => {
                 spaceBetween: 16,
                 slidesPerView: 'auto',
                 autoplay: globalAutoPlaySliderConfig,
-                // breakpoints: {
-                //     // when window width is >= 480px
-                //     480: {
-                //         slidesPerView: 'auto',
-                //     },
-                //     // when window width is >= 768px
-                //     768: {
-                //         slidesPerView: 2,
-                //         slidesPerGroup: 2
-                //     }
-                // }
-
             })
         }
 

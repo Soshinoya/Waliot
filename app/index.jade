@@ -298,7 +298,10 @@ html(lang='ru')
                     .row
                         h2.industry__title Отраслевые решения
                     .row
-                        .col-lg-4
+                        .industry__slider
+                            .swiper
+                                .swiper-wrapper
+                        .industry__items
                             .industry-item
                                 .industry-item__content
                                     h4.industry-item__title ГЛОНАСС для сельского хозяйства
@@ -306,7 +309,6 @@ html(lang='ru')
                                 .industry-item__img
                                     img(src="./images/content/industry/combine.png" alt="combine")
                                 +arrowButton('#')
-                        .col-lg-4
                             .industry-item
                                 .industry-item__content
                                     h4.industry-item__title Международные и междугородние перевозки
@@ -314,7 +316,6 @@ html(lang='ru')
                                 .industry-item__img
                                     img(src="./images/content/industry/truck.png" alt="truck")
                                 +arrowButton('#')
-                        .col-lg-4
                             .industry-item
                                 .industry-item__content
                                     h4.industry-item__title Пассажирские перевозки

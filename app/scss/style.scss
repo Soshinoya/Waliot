@@ -399,13 +399,18 @@
         flex-direction: column;
         gap: 50px;
     }
+
+    &__items  {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
 }
 
 .industry-item {
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr;
     position: relative;
-    flex-direction: column;
-    justify-content: space-between;
     border-radius: 40px;
     background-color: $white-color;
     min-height: 507px;
