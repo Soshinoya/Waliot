@@ -50,5 +50,6 @@ mixin header(link, linkText, text)
                         .header__btns
                             +search('Что ищем?')
                             +lineIconButton('#', 'Войти', '#log-in')
-                            +mainButton('#', 'Демо-версия')
+                            .header__btn.d-flex(data-path="form")
+                                +mainButton('#', 'Демо-версия')
                         +burgerMenu()

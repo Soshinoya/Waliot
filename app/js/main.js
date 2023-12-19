@@ -27,25 +27,32 @@ window.onload = () => {
     const modalOverlay = document.querySelector('.modal-overlay')
     const modals = document.querySelectorAll('.modal')
 
-    document.addEventListener('click', e => {
-        if (!e.target.closest('.modal')) {
+    const closeModal = e => {
+        if (!e?.target?.closest('.modal') || e?.target?.closest('.modal__close')) {
             modalOverlay.classList.remove('modal-overlay--visible')
             modals.forEach(el => el.classList.remove('modal--visible'))
             btns.forEach(el => el.classList.remove('popup-link--active'))
+            document.querySelector('.modals').classList.remove('modals--maxvisible')
         }
-    })
+    }
 
-    document.addEventListener('click', e => {
+    const setModal = e => {
+        const dataPathElem = e.target.closest('[data-path]')
         const popupLink = e.target.closest('.popup-link')
-        if (!popupLink) return
-        popupLink.classList.add('popup-link--active')
-        let path = popupLink.getAttribute('data-path')
+        if (!dataPathElem) return
+        popupLink && popupLink.classList.add('popup-link--active')
+        let path = dataPathElem.getAttribute('data-path')
 
         modals.forEach(el => el.classList.remove('modal--visible'))
+        path === 'form' && document.querySelector('.modals').classList.add('modals--maxvisible')
 
         document.querySelector(`[data-target="${path}"]`)?.classList?.add('modal--visible')
         modalOverlay.classList.add('modal-overlay--visible')
-    })
+    }
+
+    document.addEventListener('click', closeModal)
+
+    document.addEventListener('click', setModal)
 
     // Header burger menu
     const hamb = document.querySelector('.hamb')
@@ -66,6 +73,25 @@ window.onload = () => {
         if (!listItem) return
         headerModalNavListItem.forEach(el => el == listItem ? 0 : el.classList.remove('menu__list-item--active'))
         listItem.classList.contains('menu__list-item--active') ? listItem.classList.remove('menu__list-item--active') : listItem.classList.add('menu__list-item--active')
+    })
+
+    // Modal Form
+    const modalForm = document.querySelector('.modal-form__inner')
+    const modalFormThanks = document.querySelector('.modal-form-thanks')
+
+    modalForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const formData = new FormData(modalForm)
+        console.log('Имя:', formData.get('modal-form-name'))
+        console.log('Телефон:', formData.get('modal-form-tel'))
+        console.log('E-mail:', formData.get('modal-form-email'))
+
+        closeModal({})
+        modals.forEach(el => el.classList.remove('modal--visible'))
+        document.querySelector('.modals').classList.add('modals--maxvisible')
+
+        modalFormThanks?.classList?.add('modal--visible')
+        modalOverlay.classList.add('modal-overlay--visible')
     })
 
     // 'Monitoring' Slider

@@ -442,6 +442,17 @@ h5 {
     }
 }
 
+.input {
+    padding: 19px 30px 21px 30px;
+    border: 1px solid $sep-color;
+    border-radius: 200px;
+    outline: none;
+
+    &::placeholder {
+        color: $txt2-color;
+    }
+}
+
 .slider-button {
     padding: 10px;
     display: flex;
@@ -466,6 +477,10 @@ h5 {
 
 .modals {
     z-index: 100;
+
+    &--maxvisible {
+        z-index: 200;
+    }
 }
 
 .modal-overlay {
@@ -498,6 +513,26 @@ h5 {
     &__title {
         margin-bottom: 20px;
     }
+
+    &__close {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        top: -48px;
+        right: -48px;
+        padding: 10px;
+        border-radius: 500px;
+        background-color: $white-color;
+        cursor: pointer;
+
+        svg {
+            width: 10px;
+            height: 10px;
+        }
+    }
 }
 
 .modal-overlay--visible {
@@ -508,6 +543,67 @@ h5 {
 
 .modal--visible {
     transform: translateY(168px);
+}
+
+.modal-form {
+    position: absolute;
+    top: 50%;
+    max-width: 544px;
+    height: fit-content;
+    padding: 56px;
+    border-radius: 50px;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__hint {
+        color: $txt2-color;
+    }
+
+    .main-button {
+        width: 100%;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.modal-form-thanks {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    max-width: 544px;
+    height: fit-content;
+    flex-direction: column;
+    gap: 40px;
+    padding: 56px;
+    border-radius: 50px;
+
+    &__title {
+        font-size: 30px;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.modal-form,
+.modal-form-thanks {
+    &.modal--visible {
+        transform: translateY(-50%);
+    }
 }
 
 .hamb,
