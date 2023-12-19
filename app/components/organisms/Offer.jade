@@ -1,0 +1,23 @@
+include ../atoms/Link.jade
+
+mixin offer()
+    section.offer
+        .container
+            .offer__wrapper
+                .row
+                    .offer__header
+                        h2.offer__title Waliot запустила дилерскую сеть
+                        p.offer__text Наши партнёры успешно ведут свой бизнес на территории России и странах СНГ. Мы приглашаем к сотрудничеству юридических лиц и индивидуальных предпринимателей и предлагаем индивидуальные условия по использованию средств для наших партнёров. Мы предлагаем обучение, индивидуальную техническую поддержку и скидку для участников дилерской сети.
+                .offer__holder
+                    .row
+                        .offer__inner
+                            h4.offer-form__title Заполните форму и мы свяжемся с вами в ближайшее время
+                            form.offer-form(action="#")
+                                input.offer-form__input(type="text" placeholder="Ваше имя" name="offer-form-name")
+                                input.offer-form__input(type="text" placeholder="Ваш телефон" name="offer-form-tel")
+                                input.offer-form__input(type="text" placeholder="Ваш E-mail" name="offer-form-email")
+                                button.main-button(type="submit")
+                                    b Стать дилером
+                            p.offer-form__hint 
+                                |   Нажимая «Стать дилером», я даю согласие на 
+                                +link('#', 'обработку персональных данных')

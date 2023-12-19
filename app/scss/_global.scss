@@ -155,7 +155,7 @@ h5 {
         flex-direction: column;
         align-items: center;
     }
-    
+
     &__icon {
         display: flex;
         width: 24px;
@@ -164,7 +164,7 @@ h5 {
         justify-content: center;
         border-radius: 500px;
         background-color: $white-color;
-        
+
         svg {
             width: 12px;
             height: 12px;
@@ -234,14 +234,18 @@ h5 {
         }
     }
 
-    &__icon svg {
-        width: 16px;
-        height: 16px;
+    &__icon {
+        height: 20px;
 
-        use {
-            fill: $black-color;
+        svg {
+            width: 16px;
+            height: 16px;
 
-            transition: fill .2s $transitionTimingFunc;
+            use {
+                fill: $black-color;
+
+                transition: fill .2s $transitionTimingFunc;
+            }
         }
     }
 
@@ -367,10 +371,10 @@ h5 {
         svg {
             width: 16px;
             height: 16px;
-    
+
             use {
                 fill: $black-color;
-    
+
                 transition: fill .2s $transitionTimingFunc;
             }
         }
@@ -405,6 +409,34 @@ h5 {
         svg {
             use {
                 fill: $main-color;
+            }
+        }
+    }
+}
+
+.breadcrumbs {
+    &__list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    &__list-item {
+        &:last-child .link {
+            text-decoration: none;
+        }
+
+        &:not(:last-child) {
+            position: relative;
+            padding-right: 10px;
+
+            &::after {
+                content: '/';
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
             }
         }
     }
@@ -807,6 +839,21 @@ h5 {
         align-items: center;
         justify-content: space-between;
         gap: 40px;
+
+        .line-icon-button {
+            &__icon svg {
+                fill: $black-color;
+
+                transition: fill .3s $transitionTimingFunc;
+
+            }
+
+            @include hover() {
+                .line-icon-button__icon svg {
+                    fill: $main-color;
+                }
+            }
+        }
     }
 
     &__icon,
@@ -876,7 +923,7 @@ h5 {
             fill: #7A7D80;
             width: 52px;
             height: 11px;
-            
+
             transition: fill .3s $transitionTimingFunc;
         }
 

@@ -1,0 +1,8 @@
+include ../atoms/Link.jade
+
+mixin breadcrumbs(links)
+    .breadcrumbs
+        ul.breadcrumbs__list
+            for link in links
+                li.breadcrumbs__list-item
+                    +link(link.linkHref, link.linkText)

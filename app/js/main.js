@@ -82,10 +82,12 @@ window.onload = () => {
     const monitoringContainer = document.querySelector('.monitoring > .container')
     const monitoringSliderElem = document.querySelector('.monitoring__slider')
 
-    const setMonitoringSliderOffset = () => monitoringSliderElem.style.marginRight = `-${monitoringContainer.getBoundingClientRect().left + (window.matchMedia('(max-width: 480px)').matches ? 20 : 76)}px`
+    if (monitoringSliderElem) {
+        const setMonitoringSliderOffset = () => monitoringSliderElem.style.marginRight = `-${monitoringContainer.getBoundingClientRect().left + (window.matchMedia('(max-width: 480px)').matches ? 20 : 76)}px`
 
-    window.addEventListener('resize', setMonitoringSliderOffset)
-    setMonitoringSliderOffset()
+        window.addEventListener('resize', setMonitoringSliderOffset)
+        setMonitoringSliderOffset()
+    }
 
     // 'Client' Slider
     const clientSliderConfig = new Swiper('.client__slider > .swiper', {
@@ -101,10 +103,12 @@ window.onload = () => {
     const clientContainer = document.querySelector('.client > .container')
     const clientSliderElem = document.querySelector('.client__slider')
 
-    const setClientSliderOffset = () => clientSliderElem.style.marginRight = `-${clientContainer.getBoundingClientRect().left + (window.matchMedia('(max-width: 768px)').matches ? 20 : 76)}px`
+    if (clientSliderElem) {
+        const setClientSliderOffset = () => clientSliderElem.style.marginRight = `-${clientContainer.getBoundingClientRect().left + (window.matchMedia('(max-width: 768px)').matches ? 20 : 76)}px`
 
-    window.addEventListener('resize', setClientSliderOffset)
-    setClientSliderOffset()
+        window.addEventListener('resize', setClientSliderOffset)
+        setClientSliderOffset()
+    }
 
     // Calculator
     const resultPriceEl = document.querySelector('.calculator-output__title')
@@ -329,7 +333,6 @@ window.onload = () => {
     })
 
     // Quiz, price
-
     const quizContainer = document.querySelector('.quiz__holder .row')
 
     const firstQuizTemplateNode = document.getElementById('quiz-first')
@@ -369,7 +372,9 @@ window.onload = () => {
         quizContainer.prepend(template.querySelector('.quiz__inner'))
     }
 
-    importNextQuiz()
+    if (quizContainer) {
+        importNextQuiz()
+    }
 
     const quizClickHandler = e => {
         if (currentQuestion < 5) {
@@ -390,7 +395,7 @@ window.onload = () => {
         console.log(answers)
     }
 
-    quizContainer.addEventListener('click', e => {
+    quizContainer && quizContainer.addEventListener('click', e => {
         e.preventDefault()
         const mainButton = e.target.closest('.main-button')
         const lineButton = e.target.closest('.line-button')
@@ -502,9 +507,11 @@ window.onload = () => {
             const industryContainer = document.querySelector('.industry > .container')
             const industrySliderElem = document.querySelector('.industry__slider')
 
-            const setIndustrySliderOffset = () => industrySliderElem.style.marginRight = `-${industryContainer.getBoundingClientRect().left + 76}px`
+            if (industrySliderElem) {
+                const setIndustrySliderOffset = () => industrySliderElem.style.marginRight = `-${industryContainer.getBoundingClientRect().left + 76}px`
 
-            setIndustrySliderOffset()
+                setIndustrySliderOffset()
+            }
 
             // Footer accordion
             const footerBodyItems = document.querySelectorAll('.footer-body__item')
@@ -523,7 +530,7 @@ window.onload = () => {
             const controlBtn = document.querySelector('.control__inner .main-button')
             const controlImages = document.querySelector('.control__images-top')
 
-            controlBtn.insertAdjacentElement('beforebegin', controlImages)
+            controlBtn?.insertAdjacentElement('beforebegin', controlImages)
             document.querySelector('.control .col-lg-7')?.remove()
         }
 
@@ -540,7 +547,7 @@ window.onload = () => {
                 controlSliderContainer.insertAdjacentElement('beforeEnd', swiperSlide)
             })
 
-            controlPreviousContainer.remove()
+            controlPreviousContainer?.remove()
 
             new Swiper('.control__slider > .swiper', {
                 spaceBetween: 16,
@@ -608,9 +615,11 @@ window.onload = () => {
             const featureContainer = document.querySelector('.feature > .container')
             const featureSliderElem = document.querySelector('.feature__slider')
 
-            const setFeatureSliderOffset = () => featureSliderElem.style.marginRight = `-${featureContainer.getBoundingClientRect().left + 20}px`
+            if (featureSliderElem) {
+                const setFeatureSliderOffset = () => featureSliderElem.style.marginRight = `-${featureContainer.getBoundingClientRect().left + 20}px`
 
-            setFeatureSliderOffset()
+                setFeatureSliderOffset()
+            }
         }
     }
     checkDocumentWidth()

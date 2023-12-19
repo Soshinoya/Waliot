@@ -434,6 +434,12 @@
             text-align: end;
         }
     }
+
+    .post {
+        .row {
+            gap: 30px;
+        }
+    }
 }
 
 @media (max-width: 991px) {
@@ -881,6 +887,12 @@
             text-align: left;
         }
     }
+
+    .post {
+        .row {
+            padding: 0;
+        }
+    }
 }
 
 @media (max-width: 576px) {
@@ -1015,6 +1027,12 @@
             height: 40px;
         }
     }
+
+    .post {
+        &__holder {
+            gap: 50px;
+        }
+    }
 }
 
 @media (max-width: 480px) {
@@ -1031,7 +1049,9 @@
     .case__title,
     .media__title,
     .review__title,
-    .step__title {
+    .step__title,
+    .post__title,
+    .post-content__title {
         font-size: 28px;
     }
 
@@ -1054,7 +1074,8 @@
     .calculator__text,
     .client__slider-slide__text,
     .line-,
-    .offer__text {
+    .offer__text,
+    .post__text {
         font-size: 14px;
     }
 
@@ -1287,6 +1308,14 @@
     .footer-top {
         &__icons {
             gap: 10px;
+        }
+    }
+
+    .post {
+        padding: 30px 0 50px;
+
+        .main-button {
+            text-align: center;
         }
     }
 }

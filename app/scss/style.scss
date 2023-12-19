@@ -1343,4 +1343,44 @@
     }
 }
 
+.post {
+    padding: 60px 0 100px;
+
+    .row {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__holder {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &__img {
+        max-height: 490px;
+    }
+
+    .main-button {
+        display: block;
+    }
+}
+
+.post-content {
+    &__title {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        margin-bottom: 30px;
+    }
+}
+
 @import "media";
