@@ -75,23 +75,53 @@ window.onload = () => {
         listItem.classList.contains('menu__list-item--active') ? listItem.classList.remove('menu__list-item--active') : listItem.classList.add('menu__list-item--active')
     })
 
+    // Маска для инпутов с name="tel"
+    const setPhoneMask = input => {
+        const phoneMaskOptions = { mask: '+{7} (000) 000-00-00' }
+        IMask(input, phoneMaskOptions)
+    }
+
+    const phoneInputs = document.querySelectorAll('input[name="tel"]')
+    if (phoneInputs.length > 0) {
+        phoneInputs.forEach(input => {
+            setPhoneMask(input)
+        })
+    }
+
+    const formValidation = form => {
+        const formInputs = form.querySelectorAll('input')
+        const result = Array.from(formInputs).reduce((accum, curr) => {
+            const isValid = inputValidation(curr)
+            if (isValid) {
+                curr.classList.remove('input--error')
+                return accum
+            } else {
+                curr.classList.add('input--error')
+                return accum + 1
+            }
+        }, 0)
+        return !result
+    }
+
     // Modal Form
     const modalForm = document.querySelector('.modal-form__inner')
     const modalFormThanks = document.querySelector('.modal-form-thanks')
 
     modalForm.addEventListener('submit', e => {
         e.preventDefault()
-        const formData = new FormData(modalForm)
-        console.log('Имя:', formData.get('modal-form-name'))
-        console.log('Телефон:', formData.get('modal-form-tel'))
-        console.log('E-mail:', formData.get('modal-form-email'))
 
-        closeModal({})
-        modals.forEach(el => el.classList.remove('modal--visible'))
-        document.querySelector('.modals').classList.add('modals--maxvisible')
+        if (formValidation(modalForm)) {
+            const formData = new FormData(modalForm)
+            formData.forEach((value, key) => console.log(`${key}: ${value}`))
 
-        modalFormThanks?.classList?.add('modal--visible')
-        modalOverlay.classList.add('modal-overlay--visible')
+            closeModal({})
+            modals.forEach(el => el.classList.remove('modal--visible'))
+            document.querySelector('.modals').classList.add('modals--maxvisible')
+
+            modalFormThanks?.classList?.add('modal--visible')
+            modalOverlay.classList.add('modal-overlay--visible')
+        }
+
     })
 
     // 'Monitoring' Slider
@@ -389,6 +419,8 @@ window.onload = () => {
                 break;
             case 5:
                 template = document.importNode(quizFormTemplateNode.content, true)
+                const phoneInput = template.querySelector('form input[name="tel"]')
+                phoneInput && setPhoneMask(phoneInput)
                 break;
             default:
                 template = document.importNode(firstQuizTemplateNode.content, true)
@@ -414,11 +446,13 @@ window.onload = () => {
             return
         }
 
-        const formData = new FormData(quizContainer.querySelector('form'))
-        console.log('Имя:', formData.get('quiz-form-name'))
-        console.log('Телефон:', formData.get('quiz-form-tel'))
-        console.log('E-mail:', formData.get('quiz-form-email'))
-        console.log(answers)
+        const quizForm = quizContainer.querySelector('form')
+
+        if (formValidation(quizForm)) {
+            const formData = new FormData(quizForm)
+            formData.forEach((value, key) => console.log(`${key}: ${value}`))
+            console.log(answers)
+        }
     }
 
     quizContainer && quizContainer.addEventListener('click', e => {
@@ -438,10 +472,11 @@ window.onload = () => {
 
     offerForm.addEventListener('submit', e => {
         e.preventDefault()
-        const formData = new FormData(offerForm)
-        console.log('Имя:', formData.get('offer-form-name'))
-        console.log('Телефон:', formData.get('offer-form-tel'))
-        console.log('E-mail:', formData.get('offer-form-email'))
+
+        if (formValidation(offerForm)) {
+            const formData = new FormData(offerForm)
+            formData.forEach((value, key) => console.log(`${key}: ${value}`))
+        }
     })
 
     // Scroll to top

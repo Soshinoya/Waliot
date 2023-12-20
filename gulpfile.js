@@ -83,6 +83,8 @@ function scripts() {
     'node_modules/swiper/swiper-bundle.js',
     'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
     'node_modules/select2/dist/js/select2.full.min.js',
+    'node_modules/imask/dist/imask.min.js',
+    'app/utils/inputValidation.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))

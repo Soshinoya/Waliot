@@ -894,21 +894,13 @@
     }
 
     &__field-input {
-        padding: 19px 30px 21px 30px;
-        border-radius: 200px;
-        border: 1px solid $sep-color;
         background-color: $white-color;
-        outline: none;
 
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
             /* display: none; <- Crashes Chrome on hover */
             -webkit-appearance: none;
             margin: 0;
-        }
-
-        &::placeholder {
-            color: $txt2-color;
         }
     }
 
@@ -1319,21 +1311,13 @@
     }
 
     &__input {
-        padding: 19px 30px 21px 30px;
-        border-radius: 200px;
-        border: 1px solid $sep-color;
         background-color: $white-color;
-        outline: none;
 
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
             /* display: none; <- Crashes Chrome on hover */
             -webkit-appearance: none;
             margin: 0;
-        }
-
-        &::placeholder {
-            color: $txt2-color;
         }
     }
 

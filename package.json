@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
+    "imask": "^7.2.1",
     "ion-rangeslider": "^2.3.1",
     "select2": "^4.1.0-rc.0"
   }

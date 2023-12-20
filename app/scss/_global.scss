@@ -451,6 +451,10 @@ h5 {
     &::placeholder {
         color: $txt2-color;
     }
+
+    &--error {
+        border: 1px solid red;
+    }
 }
 
 .slider-button {

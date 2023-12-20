@@ -5,9 +5,9 @@ mixin modalForm()
         .modal-form__wrapper
             h4.modal-form__title Заполните форму и мы свяжемся с вами в ближайшее время
             form.modal-form__inner(action="#")
-                input.input.modal-form__input(type="text" placeholder="Ваше имя" name="modal-form-name")
-                input.input.modal-form__input(type="text" placeholder="Ваш телефон" name="modal-form-tel")
-                input.input.modal-form__input(type="text" placeholder="Ваш E-mail" name="modal-form-email")
+                input.input.modal-form__input(type="text" placeholder="Ваше имя" name="name")
+                input.input.modal-form__input(type="text" placeholder="Ваш телефон" name="tel")
+                input.input.modal-form__input(type="email" placeholder="Ваш E-mail" name="email")
                 button.main-button(type="submit")
                     b Оставить заявку
             p.modal-form__hint 
