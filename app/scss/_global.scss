@@ -225,6 +225,10 @@ h5 {
 
     transition: border .2s $transitionTimingFunc, color .2s $transitionTimingFunc;
 
+    &--error {
+        border: 1px solid #F9326D;
+    }
+
     &--active {
         color: $main-color;
         border: 1px solid $main-color;
@@ -453,7 +457,7 @@ h5 {
     }
 
     &--error {
-        border: 1px solid red;
+        border: 1px solid #F9326D;
     }
 }
 

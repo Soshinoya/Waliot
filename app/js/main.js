@@ -436,8 +436,15 @@ window.onload = () => {
 
     const quizClickHandler = e => {
         if (currentQuestion < 5) {
-            const answer = e.target.closest('.quiz__inner').querySelector('.line-button--active')?.getAttribute('data-option')
-            if (!answer) return
+            let answer;
+            const activeOption = e.target.closest('.quiz__inner').querySelector('.line-button--active')
+            if (activeOption) {
+                answer = activeOption?.getAttribute('data-option')
+                e.target.closest('.quiz__inner').querySelectorAll('.line-button').forEach(el => el.classList.remove('line-button--error'))
+            } else {
+                e.target.closest('.quiz__inner').querySelectorAll('.line-button').forEach(el => el.classList.add('line-button--error'))
+                return
+            }
 
             answers[currentQuestion] = answer
             quizContainer.querySelector('.quiz__inner').remove()
