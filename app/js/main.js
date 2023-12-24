@@ -27,21 +27,28 @@ window.onload = () => {
     const modalOverlay = document.querySelector('.modal-overlay')
     const modals = document.querySelectorAll('.modal')
 
-    const closeModal = e => {
-        if (!e?.target?.closest('.modal') || e?.target?.closest('.modal__close')) {
-            modalOverlay.classList.remove('modal-overlay--visible')
-            modals.forEach(el => el.classList.remove('modal--visible'))
-            btns.forEach(el => el.classList.remove('popup-link--active'))
-            document.querySelector('.modals').classList.remove('modals--maxvisible')
-        }
+    let currModal = ''
+
+    const closeModal = () => {
+        currModal = ''
+        document.body.classList.remove('no-scroll')
+        modalOverlay.classList.remove('modal-overlay--visible')
+        modals.forEach(el => el.classList.remove('modal--visible'))
+        btns.forEach(el => el.classList.remove('popup-link--active'))
+        document.querySelector('.modals').classList.remove('modals--maxvisible')
     }
 
     const setModal = e => {
         const dataPathElem = e.target.closest('[data-path]')
         const popupLink = e.target.closest('.popup-link')
+        console.log(!dataPathElem)
         if (!dataPathElem) return
+        document.body.classList.add('no-scroll')
+
         popupLink && popupLink.classList.add('popup-link--active')
         let path = dataPathElem.getAttribute('data-path')
+
+        currModal = path
 
         modals.forEach(el => el.classList.remove('modal--visible'))
         path === 'form' && document.querySelector('.modals').classList.add('modals--maxvisible')
@@ -50,9 +57,25 @@ window.onload = () => {
         modalOverlay.classList.add('modal-overlay--visible')
     }
 
-    document.addEventListener('click', closeModal)
+    document.querySelectorAll('.menu .popup-link').forEach(el => el.addEventListener('mousemove', e => {
+        if (currModal === e.target.closest('[data-path]').getAttribute('data-path')) return
+        closeModal()
+        setModal(e)
+    }))
 
-    document.addEventListener('click', setModal)
+    document.querySelectorAll('[data-path="form"]').forEach(el => el.addEventListener('click', setModal))
+
+    document.addEventListener('click', e => {
+        if (e.target.closest('.modal__close')) {
+            closeModal()
+        } else if (e.target.closest('.popup-link') || e.target.closest('.modal')) {
+            return
+        } else if (e.target.closest('[data-path="form"]')) {
+            return
+        } else {
+            closeModal()
+        }
+    })
 
     // Header burger menu
     const hamb = document.querySelector('.hamb')

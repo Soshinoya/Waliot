@@ -117,6 +117,17 @@ h5 {
     }
 }
 
+.tooltip,
+.tooltip__wrapper {
+    cursor: pointer;
+    
+    &:hover {
+        .tooltip__icon {
+            transform: rotate(45deg);
+        }
+    }
+}
+
 .tooltip {
     display: flex;
     width: max-content;
@@ -164,6 +175,8 @@ h5 {
         justify-content: center;
         border-radius: 500px;
         background-color: $white-color;
+
+        transition: transform .2s $transitionTimingFunc;
 
         svg {
             width: 12px;
