@@ -80,6 +80,17 @@
     .client__slider-button__wrapper--lg {
         display: none;
     }
+
+    .promotion,
+    .post {
+        margin-top: 174px;
+    }
+
+    .header {
+        .menu__list-item .popup-link {
+            padding: 38px 0;
+        }
+    }
 }
 
 @media (min-width: 1200px) {
@@ -120,6 +131,12 @@
 }
 
 @media (min-width: 1400px) {
+    .modal {
+        width: 1360px;
+    }
+}
+
+@media (min-width: 1530px) {
     .modal {
         width: 1480px;
     }
@@ -451,6 +468,7 @@
     .header {
         &__inner {
             justify-content: unset;
+            padding: 15px 0;
         }
 
         &__holder {
@@ -593,12 +611,20 @@
             grid-template-columns: repeat(2, 1fr);
         }
     }
+
+    .promotion,
+    .post {
+        margin-top: 76px;
+    }
+
+    .modal__title {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 768px) {
 
     .header,
-    .promotion,
     .feature,
     .about {
         .row {
@@ -1126,6 +1152,7 @@
         }
     }
 
+    .promotion .container,
     .control .container,
     .icons .container,
     .calculator .container,
@@ -1358,6 +1385,10 @@
         .main-button {
             text-align: center;
         }
+    }
+
+    .promotion__holder {
+        padding: 40px 20px;
     }
 }
 

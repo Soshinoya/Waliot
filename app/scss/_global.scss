@@ -482,9 +482,21 @@ h5 {
     background-color: $white-color;
     cursor: pointer;
 
+    transition: background-color .2s $transitionTimingFunc;
+    
+    &:hover {
+        background-color: $main-color;
+
+        svg {
+            fill: $white-color;
+        }
+    }
+    
     svg {
         width: 24px;
         height: 24px;
+        fill: $black-color;
+        transition: fill .2s $transitionTimingFunc;
     }
 
     &--prev svg {
@@ -493,6 +505,18 @@ h5 {
 
     &--next svg {
         transform: rotate(-90deg);
+    }
+
+    &.swiper-button-disabled {
+        opacity: .5;
+
+        &:hover {
+            background-color: $white-color;
+
+            svg {
+                fill: $black-color;
+            }
+        }
     }
 }
 
@@ -520,16 +544,18 @@ h5 {
     transition: opacity .3s $transitionTimingFunc, visibility .3s $transitionTimingFunc;
 }
 
+.modal__holder,
+.modal-form,
+.modal-form-thanks {
+    padding: 56px 0;
+    border-radius: 50px;
+    background-color: $bg-color;
+}
+
 .modal {
     position: absolute;
     transform: translateY(-1000vh);
-    background-color: $bg-color;
-    border-radius: 50px;
     transition: transform .3s $transitionTimingFunc;
-
-    &__holder {
-        padding: 56px 0;
-    }
 
     &__title {
         margin-bottom: 20px;
@@ -563,7 +589,8 @@ h5 {
 }
 
 .modal--visible {
-    transform: translateY(168px);
+    transform: translateY(154px);
+    padding-top: 20px;
 }
 
 .modal-form {
@@ -679,6 +706,10 @@ h5 {
 
 .header__wrapper {
     z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .header-top {
@@ -749,7 +780,6 @@ h5 {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 15px 0;
     }
 
     &__logo {
@@ -857,6 +887,44 @@ h5 {
                 .menu__list-item__content {
                     display: flex;
                 }
+
+                .menu__list-item__icon svg {
+                    opacity: 0;
+                }
+
+                .menu__list-item__icon--open {
+                    width: 24px;
+                    height: 24px;
+                    opacity: 1;
+                }
+            }
+
+            &__text {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            svg,
+            &__icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            &__icon svg {
+                transform: rotate(-90deg);
+                transition: opacity .2s $transitionTimingFunc;
+            }
+
+            &__icon--open {
+                width: 0;
+                height: 0;
+                opacity: 0;
+                transition: width .2s $transitionTimingFunc, height .2s $transitionTimingFunc, opacity .2s $transitionTimingFunc;
+
+                svg {
+                    transform: rotate(90deg);
+                }
             }
 
             &__label {
@@ -864,12 +932,7 @@ h5 {
                 align-items: center;
                 justify-content: space-between;
                 user-select: none;
-
-                svg {
-                    width: 24px;
-                    height: 24px;
-                    transform: rotate(-90deg);
-                }
+                font-size: 18px;
             }
 
             &__content {

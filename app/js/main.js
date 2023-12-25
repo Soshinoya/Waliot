@@ -31,7 +31,6 @@ window.onload = () => {
 
     const closeModal = () => {
         currModal = ''
-        document.body.classList.remove('no-scroll')
         modalOverlay.classList.remove('modal-overlay--visible')
         modals.forEach(el => el.classList.remove('modal--visible'))
         btns.forEach(el => el.classList.remove('popup-link--active'))
@@ -41,9 +40,7 @@ window.onload = () => {
     const setModal = e => {
         const dataPathElem = e.target.closest('[data-path]')
         const popupLink = e.target.closest('.popup-link')
-        console.log(!dataPathElem)
         if (!dataPathElem) return
-        document.body.classList.add('no-scroll')
 
         popupLink && popupLink.classList.add('popup-link--active')
         let path = dataPathElem.getAttribute('data-path')
@@ -58,12 +55,26 @@ window.onload = () => {
     }
 
     document.querySelectorAll('.menu .popup-link').forEach(el => el.addEventListener('mousemove', e => {
-        if (currModal === e.target.closest('[data-path]').getAttribute('data-path')) return
-        closeModal()
+        const popupLink = e.target.closest('.popup-link')
+        if (popupLink.classList.contains('popup-link--active')) return
         setModal(e)
     }))
 
-    document.querySelectorAll('[data-path="form"]').forEach(el => el.addEventListener('click', setModal))
+    window.matchMedia('(min-width: 991px)').matches && document.addEventListener('mousemove', e => {
+        if (currModal === 'form' || currModal === 'form-thanks') return
+        const headerPopupLink = e.target.closest('.header .popup-link')
+        const visibleModal = e.target.closest('.modal')
+        const modalClose = e.target.closest('.modal__close')
+        const dataPathElem = e.target.closest('[data-path="form"]')
+        const hamb = e.target.closest('.hamb')
+        if (headerPopupLink || visibleModal || modalClose || dataPathElem || hamb) return
+        closeModal()
+    })
+
+    document.querySelectorAll('[data-path="form"]').forEach(el => el.addEventListener('click', e => {
+        document.body.classList.add('no-scroll')
+        setModal(e)
+    }))
 
     document.addEventListener('click', e => {
         if (e.target.closest('.modal__close')) {
@@ -72,7 +83,12 @@ window.onload = () => {
             return
         } else if (e.target.closest('[data-path="form"]')) {
             return
+        } else if (e.target.closest('.hamb')) {
+            return
         } else {
+            if (!document.querySelector('.header-modal--active')) {
+                document.body.classList.remove('no-scroll')
+            }
             closeModal()
         }
     })
@@ -141,6 +157,7 @@ window.onload = () => {
             modals.forEach(el => el.classList.remove('modal--visible'))
             document.querySelector('.modals').classList.add('modals--maxvisible')
 
+            currModal = 'form-thanks'
             modalFormThanks?.classList?.add('modal--visible')
             modalOverlay.classList.add('modal-overlay--visible')
         }

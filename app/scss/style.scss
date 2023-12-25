@@ -13,11 +13,16 @@
 .promotion {
     padding-top: 20px;
 
+    &__holder {
+        padding: 56px 0;
+        background-color: $white-color;
+        border-radius: 50px;
+    }
+
     &__inner {
         display: flex;
         align-items: center;
         gap: 70px;
-        padding: 56px 0;
     }
 
     &__content {
@@ -337,26 +342,22 @@
 
     &__slider-slide {
         display: flex;
-        position: relative;
         max-width: 286px;
         width: 100%;
-        flex-direction: column;
-        gap: 5px;
+        gap: 10px;
         padding-left: 34px;
 
-        &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            @include bg-img(null,
-                null,
-                "../images/sprite.svg#map-mark",
-                no-repeat,
-                cover,
-                center);
+        &__icon {
+            svg {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
     }
 }
