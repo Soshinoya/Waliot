@@ -474,15 +474,22 @@ window.onload = () => {
         importNextQuiz()
     }
 
-    const quizClickHandler = e => {
+    const quizClickHandler = (e, direction) => {
+        if (direction === 'prev') {
+            answers[currentQuestion] = null
+            quizContainer.querySelector('.quiz__inner').remove()
+            --currentQuestion
+            importNextQuiz()
+            return
+        }
         if (currentQuestion < 5) {
             let answer;
             const activeOption = e.target.closest('.quiz__inner').querySelector('.line-button--active')
             if (activeOption) {
                 answer = activeOption?.getAttribute('data-option')
-                e.target.closest('.quiz__inner').querySelectorAll('.line-button').forEach(el => el.classList.remove('line-button--error'))
+                quizContainer.querySelector('.quiz-content__variants').querySelectorAll('.line-button').forEach(el => el.classList.remove('line-button--error'))
             } else {
-                e.target.closest('.quiz__inner').querySelectorAll('.line-button').forEach(el => el.classList.add('line-button--error'))
+                quizContainer.querySelector('.quiz-content__variants').querySelectorAll('.line-button').forEach(el => el.classList.add('line-button--error'))
                 return
             }
 
@@ -506,11 +513,18 @@ window.onload = () => {
         e.preventDefault()
         const mainButton = e.target.closest('.main-button')
         const lineButton = e.target.closest('.line-button')
+        const quizBtns = e.target.closest('.quiz__btns')
+        const quizContentVariants = e.target.closest('.quiz-content__variants')
+        document.querySelector('.quiz__inner .quiz-content__variants')?.querySelectorAll('.line-button')?.forEach(btn => btn.classList.remove('line-button--active'))
+        lineButton?.classList.add('line-button--active')
         if (mainButton) {
             quizClickHandler(e)
-        } else if (lineButton) {
-            quizContainer.querySelectorAll('.line-button').forEach(btn => btn.classList.remove('line-button--active'))
-            lineButton.classList.add('line-button--active')
+        }
+        if (quizContentVariants && lineButton) {
+            quizClickHandler(e)
+        }
+        if (!quizContentVariants && lineButton) {
+            quizClickHandler(e, lineButton && 'prev')
         }
     })
 

@@ -660,7 +660,8 @@ html(lang='ru')
                                             +lineButtonTag('Грузовые', 'option-2')
                                             +lineButtonTag('Спецтехника', 'option-3')
                                             +lineButtonTag('Все типы ТС', 'option-4')
-                                    +mainButton('', 'Следующий вопрос')
+                                    .quiz__btns
+                                        +mainButton('', 'Следующий вопрос')
                             template#quiz-second
                                 .quiz__inner
                                     .quiz-content
@@ -671,7 +672,9 @@ html(lang='ru')
                                             +lineButtonTag('Местоположение', 'option-2')
                                             +lineButtonTag('Местоположение и доп. оборудование', 'option-3')
                                             +lineButtonTag('Всё по максимуму', 'option-4')
-                                    +mainButton('', 'Следующий вопрос')
+                                    .quiz__btns
+                                        +mainButton('', 'Следующий вопрос')
+                                        +lineButton('', 'Назад')
                             template#quiz-third
                                 .quiz__inner
                                     .quiz-content
@@ -680,7 +683,9 @@ html(lang='ru')
                                         .quiz-content__variants
                                             +lineButtonTag('У нас', 'option-1')
                                             +lineButtonTag('У вас на базе', 'option-2')
-                                    +mainButton('', 'Следующий вопрос')
+                                    .quiz__btns
+                                        +mainButton('', 'Следующий вопрос')
+                                        +lineButton('', 'Назад')
                             template#quiz-fourth
                                 .quiz__inner
                                     .quiz-content
@@ -689,7 +694,9 @@ html(lang='ru')
                                         .quiz-content__variants
                                             +lineButtonTag('У нас', 'option-1')
                                             +lineButtonTag('У вас на базе', 'option-2')
-                                    +mainButton('', 'Следующий вопрос')
+                                    .quiz__btns
+                                        +mainButton('', 'Следующий вопрос')
+                                        +lineButton('', 'Назад')
                             template#quiz-form
                                 form.quiz__inner(action="#")
                                     p.quiz-form__subtitle

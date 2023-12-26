@@ -829,6 +829,12 @@
         gap: 20px;
     }
 
+    &__btns {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
     form.quiz__inner {
         justify-content: unset;
         gap: 20px;
