@@ -351,7 +351,7 @@ window.onload = () => {
             })
 
             $('#calculator-config-kilometrage').ionRangeSlider({
-                min: 0,
+                min: 1,
                 max: 20000,
                 step: 100,
                 from: kilometrageAverage,
