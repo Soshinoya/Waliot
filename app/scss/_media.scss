@@ -90,6 +90,10 @@
         .menu__list-item .popup-link {
             padding: 38px 0;
         }
+
+        &__btns {
+            padding: 27px 0;
+        }
     }
 }
 
@@ -468,7 +472,7 @@
     .header {
         &__inner {
             justify-content: unset;
-            padding: 15px 0;
+            padding: 14px 0;
         }
 
         &__holder {
