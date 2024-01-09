@@ -1,8 +1,0 @@
-mixin videoButton(link, linkText, text, variant)
-    .video-button.d-flex.align-items-center(class=variant == 'dark' ? 'video-button--dark' : '')
-        a.video-button__play(href="#{link}")
-            svg
-                use(xlink:href="./images/sprite.svg#play")
-        .video-button__content.d-flex.flex-column
-            a.video-button__link(href="#{link}")= linkText
-            p.video-button__text= text
