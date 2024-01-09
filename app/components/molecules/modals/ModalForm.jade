@@ -1,7 +1,7 @@
 include ../../atoms/Link.jade
 
-mixin modalForm()
-    .modal.modal-form(data-target="form")
+mixin modalForm(dataTarget)
+    .modal.modal-form(data-target="#{dataTarget}")
         .modal-form__wrapper
             h4.modal-form__title Заполните форму и мы свяжемся с вами в ближайшее время
             form.modal-form__inner(action="#")

@@ -38,7 +38,13 @@ html(lang='ru')
                 +modalTechnologies()
                 +modalCompany()
                 +modalConnect()
-                +modalForm()
+                +modalForm('modal-form-header')
+                +modalForm('modal-form-promotion')
+                +modalForm('modal-form-tariff--base')
+                +modalForm('modal-form-tariff--optimal')
+                +modalForm('modal-form-tariff--max')
+                +modalForm('modal-form-calculator')
+                +modalForm('modal-form-step')
                 +modalFormThanks()
 
         +header()
@@ -74,7 +80,8 @@ html(lang='ru')
                                             b   Бесплатно
                                             |   обучайтесь работе с нашей программой после установки
                                 .promotion__btns
-                                    +mainButton('#', 'Подключить Waliot')
+                                    .promotion__btn(data-path='modal-form-promotion')
+                                        +mainButton('#', 'Подключить Waliot')
                                     +lineButton('#', 'Подобрать решение')
                             .promotion__img
                                 img(src="./images/content/promotion/system.webp" srcset="./images/content/promotion/system.webp 1x, ./images/content/promotion/system@2x.webp 2x" alt="система waliot")
@@ -391,7 +398,7 @@ html(lang='ru')
                                                 p.tariff-item__plan-text
                                                     b= planObj.bold
                                                     = planObj.label
-                                .tariff-item__btn
+                                .tariff-item__btn(data-path='modal-form-tariff--base')
                                     +mainButton('#', 'Подключить Waliot')
                             .tariff-item
                                 .tariff-item__header
@@ -415,7 +422,7 @@ html(lang='ru')
                                                 p.tariff-item__plan-text
                                                     b= planObj.bold
                                                     = planObj.label
-                                .tariff-item__btn
+                                .tariff-item__btn(data-path='modal-form-tariff--optimal')
                                     +mainButton('#', 'Подключить Waliot')
                             .tariff-item
                                 .tariff-item__header
@@ -438,7 +445,7 @@ html(lang='ru')
                                                 p.tariff-item__plan-text
                                                     b= planObj.bold
                                                     = planObj.label
-                                .tariff-item__btn
+                                .tariff-item__btn(data-path='modal-form-tariff--max')
                                     +mainButton('#', 'Подключить Waliot')
         section.calculator
             .container
@@ -470,26 +477,22 @@ html(lang='ru')
                                                 .calculator-config__field-top
                                                     p.calculator-config__field-title Количество автомобилей:
                                                     .calculator-config__field-value(type="number" id="calculator-config-cars-count-value")
-                                                    //- input.calculator-config__field-value(type="number")
                                                 input.calculator-config__field-range(id="calculator-config-cars-count" type="text")
                                             .calculator-config__field
                                                 .calculator-config__field-top
                                                     p.calculator-config__field-title Средний километраж за месяц:
                                                     .calculator-config__field-value(type="number" id="calculator-config-kilometrage-value")
-                                                    //- input.calculator-config__field-value(type="number")
                                                 input.calculator-config__field-range(id="calculator-config-kilometrage" type="text")
                                         .calculator-config__field-inner
                                             .calculator-config__field
                                                 .calculator-config__field-top
                                                     p.calculator-config__field-title Средний расход топлива, л/100 км:
                                                     .calculator-config__field-value(type="number" id="calculator-config-fuel-consumption-value")
-                                                    //- input.calculator-config__field-value(type="number")
                                                 input.calculator-config__field-range(id="calculator-config-fuel-consumption" type="text")
                                             .calculator-config__field
                                                 .calculator-config__field-top
                                                     p.calculator-config__field-title Стоимость топлива
                                                     .calculator-config__field-value(type="number" id="calculator-config-fuel-price-value")
-                                                    //- input.calculator-config__field-value(type="number")
                                                 input.calculator-config__field-range(id="calculator-config-fuel-price" type="text")
                                 .calculator-output
                                     .calculator-output__content
@@ -498,7 +501,7 @@ html(lang='ru')
                                         p.calculator-output__payback
                                             |   Окупаемость: 
                                             b
-                                    .calculator-output__btn
+                                    .calculator-output__btn(data-path='modal-form-calculator')
                                         +calculatorButton('Хочу так же!', 'submit')
                                         p.calculator-output__hint * Расчёт примерный - точная сумма зависит от индивидуальный параметров
         section.client
@@ -709,7 +712,8 @@ html(lang='ru')
                                             input.input.quiz-form__field-input(type="text" placeholder="Ваш телефон" name="tel" required)
                                         .quiz-form__field
                                             input.input.quiz-form__field-input(type="email" placeholder="Ваш E-mail" name="email" required)
-                                            +mainButton('', 'Узнать стоимость')
+                                            .quiz-form__field-btn(data-path="modal-form-thanks")
+                                                +mainButton('', 'Узнать стоимость')
                                     p.quiz-form__hint 
                                         |   Нажимая «Узнать стоимость», я даю согласие на 
                                         +link('#', 'обработку персональных данных')
@@ -831,7 +835,9 @@ html(lang='ru')
                                     p.step-item__num 01
                                     .step-item__sep
                                 p.step-item__text Вы оставляете заявку на сайте или по телефону
-                                +linkTwo('#', 'Оставить заявку')
+                                .step-item__btn(data-path='modal-form-step')
+                                    .link-two(href="#{link}")
+                                        b Оставить заявку
                                 .step-item__content
                             .step-item
                                 .step-item__top

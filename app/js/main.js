@@ -48,9 +48,9 @@ window.onload = () => {
         currModal = path
 
         modals.forEach(el => el.classList.remove('modal--visible'))
-        path === 'form' && document.querySelector('.modals').classList.add('modals--maxvisible')
+        currModal.startsWith('modal-form') && document.querySelector('.modals').classList.add('modals--maxvisible')
 
-        document.querySelector(`[data-target="${path}"]`)?.classList?.add('modal--visible')
+        document.querySelector(`[data-target="${currModal}"]`)?.classList?.add('modal--visible')
         modalOverlay.classList.add('modal-overlay--visible')
     }
 
@@ -61,17 +61,17 @@ window.onload = () => {
     }))
 
     window.matchMedia('(min-width: 991px)').matches && document.addEventListener('mousemove', e => {
-        if (currModal === 'form' || currModal === 'form-thanks') return
+        if (currModal.startsWith('modal-form') || currModal === 'form-thanks') return
         const headerPopupLink = e.target.closest('.header .popup-link')
         const visibleModal = e.target.closest('.modal')
         const modalClose = e.target.closest('.modal__close')
-        const dataPathElem = e.target.closest('[data-path="form"]')
+        const dataPathElem = e.target.closest('[data-path^="modal-form"]')
         const hamb = e.target.closest('.hamb')
         if (headerPopupLink || visibleModal || modalClose || dataPathElem || hamb) return
         closeModal()
     })
 
-    document.querySelectorAll('[data-path="form"]').forEach(el => el.addEventListener('click', e => {
+    document.querySelectorAll('[data-path^="modal-form"]').forEach(el => el.addEventListener('click', e => {
         document.body.classList.add('no-scroll')
         setModal(e)
     }))
@@ -79,9 +79,10 @@ window.onload = () => {
     document.addEventListener('click', e => {
         if (e.target.closest('.modal__close')) {
             closeModal()
+            document.body.classList.remove('no-scroll')
         } else if (e.target.closest('.popup-link') || e.target.closest('.modal')) {
             return
-        } else if (e.target.closest('[data-path="form"]')) {
+        } else if (e.target.closest('[data-path^="modal-form"]')) {
             return
         } else if (e.target.closest('.hamb')) {
             return
@@ -143,10 +144,10 @@ window.onload = () => {
     }
 
     // Modal Form
-    const modalForm = document.querySelector('.modal-form__inner')
+    const modalForms = document.querySelectorAll('.modal-form__inner')
     const modalFormThanks = document.querySelector('.modal-form-thanks')
 
-    modalForm.addEventListener('submit', e => {
+    modalForms.forEach(modalForm => modalForm.addEventListener('submit', e => {
         e.preventDefault()
 
         if (formValidation(modalForm)) {
@@ -162,7 +163,7 @@ window.onload = () => {
             modalOverlay.classList.add('modal-overlay--visible')
         }
 
-    })
+    }))
 
     // 'Monitoring' Slider
     const monitoringSliderConfig = new Swiper('.monitoring__slider > .swiper', {
@@ -482,6 +483,7 @@ window.onload = () => {
             importNextQuiz()
             return
         }
+
         if (currentQuestion < 5) {
             let answer;
             const activeOption = e.target.closest('.quiz__inner').querySelector('.line-button--active')
@@ -506,6 +508,9 @@ window.onload = () => {
             const formData = new FormData(quizForm)
             formData.forEach((value, key) => console.log(`${key}: ${value}`))
             console.log(answers)
+
+            // Показываем модальное окно "Спасибо за заявку"
+            setModal(e)
         }
     }
 
@@ -537,6 +542,13 @@ window.onload = () => {
         if (formValidation(offerForm)) {
             const formData = new FormData(offerForm)
             formData.forEach((value, key) => console.log(`${key}: ${value}`))
+
+            modals.forEach(el => el.classList.remove('modal--visible'))
+            document.querySelector('.modals').classList.add('modals--maxvisible')
+
+            currModal = 'form-thanks'
+            modalFormThanks?.classList?.add('modal--visible')
+            modalOverlay.classList.add('modal-overlay--visible')
         }
     })
 
